@@ -32,6 +32,12 @@
 1. See their profile photo next to their posts.
 1. Receive a welcome email after creating an account.
 
+
+### Possible Resources
+- Firebase Auth: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/
+- Strapi Auth: https://blog.strapi.io/protected-routes-and-authentication-with-react-and-node-js/
+- JWT Auth: https://appdividend.com/2018/02/07/node-js-jwt-authentication-tutorial-scratch/
+
 ---
 
 ## Sprint 2: CRUD
