@@ -54,7 +54,7 @@ After you have completed your project, **deploy to heroku** to get practice gett
 
 ## Presentation
 
-Each group will present their project on **DATE** starting at **TIME** for 10 minutes.
+Each group will present their project on **3/11/2019 Monday ** starting at **9:15am** for 15 minutes.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
@@ -77,7 +77,7 @@ You will be evaluated on the following measures:
   - planning to avoid excessive merge conflicts
   - deliberate approach - routeside-in, logical progress from skateboard to car
   - the code is your original code
-2. Execution
+2. Readability
   - to what degree does your app fulfill the user stories?
   - code is clean
   - follows good naming conventions
@@ -91,8 +91,7 @@ You will be evaluated on the following measures:
   - users are authorized
   - deployed to heroku
   - commenting (optional)
-4. Creativity
-  - polished appearance
-  - personalized spin, not just a template
+4. Deployment
+  - is it deployed online?
  a travel community, code-named **Project Wayfarer** for now, for users to share tips (AKA posts) about their favorite locations around the world.
 
