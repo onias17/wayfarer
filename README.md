@@ -68,6 +68,8 @@ After you have completed your project, **deploy to heroku** to get practice gett
  - Darnell Ghenet Heggy
  
  - Bryant Isaac Jason Luke
+ 
+ <details>
 
 
 ## Presentation
