@@ -49,7 +49,18 @@ After you have completed your project, **deploy to heroku** to get practice gett
 5. **What milestones are you and your group members interested in working on?** How can you effectively delegate the work into pairs so that each group member is interested, challenged, and productive?
 
 
-#### TEAMS
+<details open>
+<summary>TEAMS</summary>
+<br>
+ - Ronni Enrique Lou Jon
+ - Matt Joe BrandonJ Christina
+ - Chike Tristan Eunice Rhea
+ - Mike Karma Amberly BrandonC
+ - Leo Nicolette Alom Siri
+ - Tiffany JJ Nassima Paris
+ - Darnell Ghenet Heggy
+ - Bryant Isaac Jason Luke
+<details>
 
 
 ## Presentation
