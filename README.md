@@ -69,7 +69,7 @@ After you have completed your project, **deploy to heroku** to get practice gett
  
  - Bryant Isaac Jason Luke
  
- <details>
+ <details open>
 
 
 ## Presentation
