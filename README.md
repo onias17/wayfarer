@@ -106,7 +106,7 @@ You will be evaluated on the following measures:
   - code is DRY
 3. Technical requirements
   - users are authenticated
-  - full CRUD for cities
+  - full CRUD for posts
   - custom HTML, CSS, and JavaScript (using the asset pipeline)
   - users are authorized
   - deployed to heroku
