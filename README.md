@@ -53,28 +53,27 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
- - Ronni Enrique Lou Jon
+ - 
  
- - Matt Joe BrandonJ Christina
+ - 
  
- - Chike Tristan Eunice Rhea
+ - 
  
- - Mike Karma Amberly BrandonC
+ - 
  
- - Leo Nicolette Alom Siri
+ - 
  
- - Tiffany JJ Nassima Paris
+ - 
  
- - Darnell Ghenet Heggy
+ - 
  
- - Bryant Isaac Jason Luke
  
  </details>
 
 
 ## Presentation
 
-Each group will present their project on **3/11/2019 Monday ** starting at **9:15am** for 15 minutes.
+Each group will present their project on **5/6/2019 Monday ** starting at **9:15am** for 15 minutes.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
