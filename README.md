@@ -53,20 +53,13 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
- - 
+ - Michael, Teresa, Justin, J
  
- - 
+ - Zach, Paw, Tiffany
  
- - 
+ - Travis, Ridwan, Johnson
  
- - 
- 
- - 
- 
- - 
- 
- - 
- 
+ - Joseph, Allen, David, Katie
  
  </details>
 
@@ -82,7 +75,7 @@ Each member of your group should speak for equal parts during your presentation 
 * Tour (demo) of your app, ideally deployed on heroku.
 * How did your group approach the requirements? (mention anything unique or creative your group chose to do)
 * What was easier than you thought? What was more challenging?
-* What is a lesson you will carry forward to working on Project 2?
+* What is a lesson you will carry forward to working on your next project?
 * Shout outs for fellow students!
 
 ## Evaluation
