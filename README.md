@@ -53,13 +53,15 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
- - Michael, Teresa, Justin, J
+ - Alex, Jane, Zafar, Nabil
  
- - Zach, Paw, Tiffany
+ - Dylan, Maekella, Octavio, Scott
  
- - Travis, Ridwan, Johnson
+ - Christian, Jackson, Aza, James W
  
- - Joseph, Allen, David, Katie
+ - Lawrence, James L, John, Jacky
+ 
+ - Meg, Eduardo, Joseph, Pouya
  
  </details>
 
