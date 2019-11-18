@@ -53,22 +53,22 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
- - Alex, Jane, Zafar, Nabil
+ - 
  
- - Dylan, Maekella, Octavio, Scott
+ - 
  
- - Christian, Jackson, Aza, James W
+ - 
  
- - Lawrence, James L, John, Jacky
+ - 
  
- - Meg, Eduardo, Joseph, Pouya
+ - 
  
  </details>
 
 
 ## Presentation
 
-Each group will present their project on **8/27/2019 Tuesday ** starting at **11:00am** for 15 minutes.
+Each group will present their project on **11/26/2019 Tuesday ** starting at **11:00am** for 15 minutes.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
