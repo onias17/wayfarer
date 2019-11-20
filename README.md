@@ -53,15 +53,43 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
- - 
- 
- - 
- 
- - 
- 
- - 
- 
- - 
+Lindsey
+Carson
+Jun
+Adil
+
+---
+Julian
+Ali
+Tanya
+Linh
+
+---
+Adonis
+Felipe
+Jay
+Jeremy
+
+---
+Jeffrey
+Jack
+David
+Izzy
+
+---
+Andy
+Brent
+Kenneth
+Mick
+
+
+---
+Daniel
+Hugo
+Pouyesh
+Karra
+Hermin
+
  
  </details>
 
