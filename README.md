@@ -53,26 +53,26 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
-seanny
-sri
-jimmy
-laura
+Seanny
+Sri
+Jimmy
+Laura
 
-liz
-tina
-anna
+Liz
+Tina
+Anna
 
-sammy
-ajay
-aibek
+Sammy
+Ajay
+Aibek
 
-seema
-mert
-huang
+Seema
+Mert
+Huang
 
-melody
-monica
-jake
+Melody
+Monica
+Jake
  
  </details>
 
@@ -85,7 +85,7 @@ Each member of your group should speak for equal parts during your presentation 
 
 **Your presentation should include:**
 
-* Tour (demo) of your app, ideally deployed on heroku.
+* Tour (demo) of your app, ideally deployed on heroku (but not required).
 * How did your group approach the requirements? (mention anything unique or creative your group chose to do)
 * What was easier than you thought? What was more challenging?
 * What is a lesson you will carry forward to working on your next project?
@@ -114,9 +114,4 @@ You will be evaluated on the following measures:
   - full CRUD for posts
   - custom HTML, CSS, and JavaScript (using the asset pipeline)
   - users are authorized
-  - deployed to heroku
   - commenting (optional)
-4. Deployment
-  - is it deployed online?
- a travel community, code-named **Project Wayfarer** for now, for users to share tips (AKA posts) about their favorite locations around the world.
-
