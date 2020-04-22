@@ -53,50 +53,33 @@ After you have completed your project, **deploy to heroku** to get practice gett
 <summary>TEAMS</summary>
 <br>
  
-Lindsey
-Carson
-Jun
-Adil
+seanny
+sri
+jimmy
+laura
 
----
-Julian
-Ali
-Tanya
-Linh
+liz
+tina
+anna
 
----
-Adonis
-Felipe
-Jay
-Jeremy
+sammy
+ajay
+aibek
 
----
-Jeffrey
-Jack
-David
-Izzy
+seema
+mert
+huang
 
----
-Andy
-Brent
-Kenneth
-Mick
-
-
----
-Daniel
-Hugo
-Pouyesh
-Karra
-Hermin
-
+melody
+monica
+jake
  
  </details>
 
 
 ## Presentation
 
-Each group will present their project on **11/26/2019 Tuesday ** starting at **11:00am** for 15 minutes.
+Each group will present their project on **04/28/2020 Tuesday** starting at **11:00am** for 15 minutes.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
