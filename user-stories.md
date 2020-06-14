@@ -9,15 +9,19 @@
 **A user should be able to:**
 
 1. Navigate to "/" and see a basic splash page with:
-  * The name of the website.
-  * Links to "Log In" and "Sign Up".
+
+- The name of the website.
+- Links to "Log In" and "Sign Up".
+
 2. Sign up for an account.
 3. Log in to their account if they already have one.
 4. Be redirected to their public profile page after logging in.
 5. On their public profile page, see their name, the current city they have set in their profile, and their join date.
 6. See the site-wide header on every page with:
-  * A link to "Log Out" if they're logged in.
-  * Links to "Log In" and "Sign Up" if they're logged out.
+
+- A link to "Log Out" if they're logged in.
+- Links to "Log In" and "Sign Up" if they're logged out.
+
 7. Update their profile by making changes to their name and/or current city.
 8. See the titles of all the posts they've contributed (start with pre-seeded data).
 9. Click on the title of one of their posts and be redirected to a "show" page for that post.
@@ -32,12 +36,6 @@
 3. See their profile photo next to their posts.
 4. Receive a welcome email after creating an account.
 
-
-### Possible Resources
-- Firebase Auth: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/
-- Strapi Auth: https://blog.strapi.io/protected-routes-and-authentication-with-react-and-node-js/
-- JWT Auth: https://appdividend.com/2018/02/07/node-js-jwt-authentication-tutorial-scratch/
-
 ---
 
 ## Sprint 2: CRUD
@@ -45,18 +43,23 @@
 **A user should be able to:**
 
 1. View the "San Francisco" page (at "/cities/1") including:
-  * The site-wide header.
-  * The name of the city.
-  * An iconic photo of the city.
+
+- The site-wide header.
+- The name of the city.
+- An iconic photo of the city.
+
 2. View a list of posts on the San Francisco page:
-  * Sorted by newest first.
-  * With the post titles linked to the individual post "show" pages.
+
+- Sorted by newest first.
+- With the post titles linked to the individual post "show" pages.
+
 3. Use an "Add New Post" button on the San Francisco city page to pull up the new post form.
 4. Create a new post for San Francisco<!--(**Hint:** <a href="http://guides.rubyonrails.org/routing.html#nested-resources" target="_blank">nested resources</a>)-->.
 5. Click "Edit" on ANY individual post, and be redirected to the edit form.
 6. Click "delete" on ANY individual post, then:
-  * See a pop-up that says: "Are you sure you want to delete #{title}?"
-  * If the user confirms, delete the post.
+
+- See a pop-up that says: "Are you sure you want to delete #{title}?"
+- If the user confirms, delete the post.
 
 ### Bonuses
 
@@ -65,8 +68,9 @@
 1. Visit city pages via pretty urls, like "/cities/san-francisco".
 2. Visit user profile pages via pretty urls, like "/users/james".
 3. On a city's page:
-  * See post content truncated to 1000 characters max, with a link to view more.
-  * See a relative published date, e.g. "2 days ago".
+
+- See post content truncated to 1000 characters max, with a link to view more.
+- See a relative published date, e.g. "2 days ago".
 
 ---
 
@@ -93,11 +97,15 @@ A user is authorized to perform certain actions on the site, according to the fo
 **A user should be able to:**
 
 1. View an error message when form validations fail, for the following validations:
-  * Title must be between 1 and 200 characters.
-  * Content must not be empty.
+
+- Title must be between 1 and 200 characters.
+- Content must not be empty.
+
 2. View only the 10 most recent posts on a city page (pagination), with
-  * A link/button to the "Next" 10.
-  * A link/button to the "Previous" 10.
+
+- A link/button to the "Next" 10.
+- A link/button to the "Previous" 10.
+
 3. See a list of the city pages they've contributed to, on their public profile
 4. See the number of posts they've written for each city, next to the city's name in their profile.
 5. View all vagabond cities as markers/pins on a map on the site's homepage.
