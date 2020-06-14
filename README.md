@@ -44,7 +44,7 @@ After you have completed your project, **deploy to heroku** to get practice gett
 
 3. **Which models do you need to implement?** Create an ERD for the client to reference.
 
-4. **What are the major milestones or components that you need to complete?** How can these be turned into tasks that group members can complete in pairs? Where do these milestones overlap and how will those related tasks be managed?
+4. **What are the major milestones that you need to complete?** How can these be turned into tasks that group members can complete in pairs? Where do these milestones overlap and how will those related tasks be managed?
 
 5. **What milestones are you and your group members interested in working on?** How can you effectively delegate the work into pairs so that each group member is interested, challenged, and productive?
 
