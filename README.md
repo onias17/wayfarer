@@ -50,7 +50,7 @@ After you have completed your project, **deploy to heroku** to get practice gett
 
 ## Presentation
 
-Each group will present their project on **06/24/2020**.
+Each group will present their project on **10/14/2020**.
 
 Each member of your group should speak for equal parts during your presentation and mention which parts of the project they worked on.
 
