@@ -106,8 +106,12 @@ You will be evaluated on the following measures:
 <details>
   <summary><h3>Happy Coding :)</h3></summary>
   <ul>
-    <li>Student1, Student2, Student3...</li>
-    <li>Student1, Student2, Student3...</li>
-    <li>Student1, Student2, Student3...</li>
+    <li>Jed Godsey, Sri Edam, Joshua Pardike, Bryan Romero</li>
+    <li>Brittany Servent, Kihwan Lee, Justin Blalock, Andy Doan</li>
+    <li>Simone Poe, Christopher Zalapa, Elias Baez, Jia Cooper</li>
+    <li>Katie Hermalik, Brendan Howe, Josh Sanford, Morgan Jaouni</li>
+    <li>John Temple, Daniel Gutierrez, Cirrus Mokhtari, Onias Israel</li>
+    <li>Juliana Zlatevski, Laura Pease, Benjamin Closson, William VanHook</li>
+    <li>Minhazur Rahaman, Emily Forester, Kyle Howard, Tyler Smith</li>
   </ul>
 </details>
