@@ -99,3 +99,15 @@ You will be evaluated on the following measures:
 - **Responsive Design:** Make sure your app looks great on a phone or tablet.
 - **Heroku:** Deploy your app to Heroku. Ensure no app secrets are exposed.
 - **Github:** Projects must have a minimum of 60 specific commits.
+
+
+## Teams
+
+<details>
+  <summary><h3>Happy Coding :)</h3></summary>
+  <ul>
+    <li>Student1, Student2, Student3...</li>
+    <li>Student1, Student2, Student3...</li>
+    <li>Student1, Student2, Student3...</li>
+  </ul>
+</details>
