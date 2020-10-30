@@ -13,4 +13,9 @@ def profiles_index(request):
 def signup(request):
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form' : form})
-    
+
+def profiles_detail(request, profile_id):
+    profile = Profile.objects.get(id=profile_id)
+    context = {'profile' : profile}
+
+    return render(request, 'profiles/detail.html', context )
