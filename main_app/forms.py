@@ -1,7 +1,7 @@
 from django import forms
 from .models import Profile
 
-class ProfileCreationForm(form.ModelForm):
+class ProfileCreationForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['currentcity', 'picture']
+        fields = [ 'picture']
