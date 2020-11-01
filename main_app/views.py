@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .forms import ProfileCreationForm
+from .forms import ProfileCreationForm, PostCreationForm
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 
@@ -63,7 +63,20 @@ def profiles_edit(request, profile_id):
             updated_profile = profile_form.save()
             return redirect('detail', updated_profile.id)
     else:
-        print('hi')
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
         return render(request, 'profiles/edit.html', context)
+
+def add_post(request, profile_id):
+    if request.method == "POST":
+        form = PostCreationForm(request.POST)
+
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.profile_id = profile_id
+            new_form.save()
+
+        return redirect('detail', profile_id)
+    else:
+        form = PostCreationForm()
+        return render(request, 'posts/new.html', {'form': form})

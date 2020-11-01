@@ -12,8 +12,14 @@
 
 {%if request.user == profile.user%}
 <a href = "{% url 'edit' profile.id %}">Edit </a>
+<a href = "{% url 'add_post' profile.id %}">New Post </a>
 {% endif %}
 
+<h5> All Posts </h5>
+
+{% for post in profile.post_set.all%}
+{{post.title}}
+{% endfor %} 
 {% endblock content %}
 
 
