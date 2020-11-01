@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import ProfileCreationForm
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -51,3 +52,16 @@ def profiles_detail(request, profile_id):
     context = {'profile' : profile}
 
     return render(request, 'profiles/detail.html', context )
+
+def profiles_edit(request, profile_id):
+    profile = Profile.objects.get(id=profile_id)
+
+    if request.method == "POST":
+        profile_form = ProfileCreationForm(request.POST, instance=profile)
+        if profile_form.is_valid():
+            updated_profile = profile_form.save()
+            return redirect('detail', updated_profile.id)
+    else:
+        profile_form  = ProfileCreationForm(instance=profile)
+        context = {'profileform': profile_form, 'profile' : profile}
+        return render(request, 'profiles/edit.html', context)

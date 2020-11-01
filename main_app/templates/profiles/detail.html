@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
 
-<h1>User Show Page</h1>
+{% block content %}
+
+{{profile.user}}
+
+<img href="{{profile.picture}}">
+
+
+{{profile.user.date_joined}}
+{{profile.currentcity}}
+
+{%if request.user == profile.user%}
+<a href = "{% url 'edit' profile.id %}">Edit </a>
+{% endif %}
+
+{% endblock content %}
+
+
 
