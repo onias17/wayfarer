@@ -79,4 +79,4 @@ def add_post(request, profile_id):
         return redirect('detail', profile_id)
     else:
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form})
+        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id})
