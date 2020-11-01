@@ -53,6 +53,7 @@ def profiles_detail(request, profile_id):
 
     return render(request, 'profiles/detail.html', context )
 
+
 def profiles_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
 
@@ -62,6 +63,7 @@ def profiles_edit(request, profile_id):
             updated_profile = profile_form.save()
             return redirect('detail', updated_profile.id)
     else:
+        print('hi')
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
         return render(request, 'profiles/edit.html', context)
