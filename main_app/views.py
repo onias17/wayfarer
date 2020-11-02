@@ -12,8 +12,10 @@ def home(request):
     return render(request, 'home.html')
 
 def profiles_index(request):
-    profiles = Profile.objects.all()
-    return render(request, 'profiles/index.html', profiles)
+    profile = Profile.objects.get(user = request.user)
+    posts = Post.objects.filter(profile=profile)
+    context = {'profile': profile, 'posts' : posts}
+    return render(request, 'profiles/index.html', context)
 
 def new_profile(request):
     if request.method == "POST":
