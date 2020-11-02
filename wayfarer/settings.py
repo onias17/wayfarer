@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-LOGIN_REDIRECT_URL = f'/profiles/{request.user.id}'
+LOGIN_REDIRECT_URL = f'/'
 
 MEDIA_URL = '/media/'
 
