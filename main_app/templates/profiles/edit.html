@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Edit Profile </h1>
+<forn method="POST" action= "{% url 'detail' profile.id%}">
+{% csrf_token %}
+
+{{profileform.as_p}}
+
+<input type="submit" class ='btn'>  
+</form>
+
+{% endblock content %}
+

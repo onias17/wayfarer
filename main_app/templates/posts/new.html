@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+New Post
+
+<form method="POST" action="{% url 'add_post' profile_id %}">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" class='btn'>
+{% endblock content %}
