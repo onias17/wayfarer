@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -18,7 +19,8 @@ class Post(models.Model):
     content = models.TextField(max_length=1000)
     title = models.CharField(max_length= 100)
     city = models.CharField(max_length=100) ##This will be changed to foreign key when cities model is made
-    date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
+
 
 # class City(models.Model):
 #     name = models.CharField(max_length=50)
