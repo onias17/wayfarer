@@ -12,3 +12,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Post(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    content = models.TextField(max_length=1000)
+    title = models.CharField(max_length= 100)
+    city = models.CharField(max_length=100) ##This will be changed to foreign key when cities model is made
+    date = models.DateField()

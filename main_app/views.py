@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .forms import ProfileCreationForm
-from .models import Profile
+from .forms import ProfileCreationForm, PostCreationForm
+from .models import Profile, Post
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -53,6 +53,7 @@ def profiles_detail(request, profile_id):
 
     return render(request, 'profiles/detail.html', context )
 
+
 def profiles_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
 
@@ -65,3 +66,23 @@ def profiles_edit(request, profile_id):
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
         return render(request, 'profiles/edit.html', context)
+
+def add_post(request, profile_id):
+    if request.method == "POST":
+        form = PostCreationForm(request.POST)
+
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.profile_id = profile_id
+            new_form.save()
+
+        return redirect('detail', profile_id)
+    else:
+        form = PostCreationForm()
+        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id})
+
+
+def posts_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {'post': post}
+    return render(request, 'posts/detail.html', context)

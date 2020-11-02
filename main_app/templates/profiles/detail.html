@@ -2,18 +2,25 @@
 
 {% block content %}
 
-{{profile.user}}
-
-<img href="{{profile.picture}}">
+<h1>{{profile.user}}</h1>
 
 
-{{profile.user.date_joined}}
+
+
+<h5> User since : {{profile.user.date_joined}} </h5>
 {{profile.currentcity}}
 
 {%if request.user == profile.user%}
 <a href = "{% url 'edit' profile.id %}">Edit </a>
+<a href = "{% url 'add_post' profile.id %}">New Post </a>
 {% endif %}
 
+<h5> All Posts </h5>
+<ul>
+{% for post in profile.post_set.all%}
+<li><a href="{% url 'postdetail' post.id %}">{{post.title}}</a> </li>
+{% endfor %} 
+</ul>
 {% endblock content %}
 
 

@@ -2,11 +2,12 @@
 
 {% block content %}
 <h1> Edit Profile </h1>
-<forn method="POST">
+<forn method="POST" action= "{% url 'detail' profile.id%}">
 {% csrf_token %}
 
 {{profileform.as_p}}
-<button class = 'btn' type="submit"> Update </button>
+
+<input type="submit" class ='btn'>  
 </form>
 
 {% endblock content %}
