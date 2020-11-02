@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'home.html')
 
+## PROFILES VIEWS
+
 def profiles_index(request):
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(profile=profile)
@@ -31,25 +33,6 @@ def new_profile(request):
         context = {'profile_form' : profile_form}
         return render(request, 'profiles/new.html', context)
 
-def signup(request):
-    error_message = ''
-
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('new_profile')
-        else:
-            error_message = "Invalid sign up - try again"
-            form = UserCreationForm()
-            context = {'form': form, 'error_message': error_message}
-            return render(request, 'registration/signup.html', context)
-
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/signup.html', context)
-
 def profiles_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     context = {'profile' : profile}
@@ -69,6 +52,27 @@ def profiles_edit(request, profile_id):
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
         return render(request, 'profiles/edit.html', context)
+
+def signup(request):
+    error_message = ''
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('new_profile')
+        else:
+            error_message = "Invalid sign up - try again"
+            form = UserCreationForm()
+            context = {'form': form, 'error_message': error_message}
+            return render(request, 'registration/signup.html', context)
+
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)
+
+
 
 def add_post(request, profile_id):
     if request.method == "POST":
