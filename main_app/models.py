@@ -19,3 +19,5 @@ class Post(models.Model):
     title = models.CharField(max_length= 100)
     city = models.CharField(max_length=100) ##This will be changed to foreign key when cities model is made
     date = models.DateField()
+
+
