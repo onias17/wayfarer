@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm
-from .models import Profile
+from .models import Profile, Post
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -80,3 +80,9 @@ def add_post(request, profile_id):
     else:
         form = PostCreationForm()
         return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id})
+
+
+def posts_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {'post': post}
+    return render(request, 'posts/detail.html', context)

@@ -16,10 +16,11 @@
 {% endif %}
 
 <h5> All Posts </h5>
-
+<ul>
 {% for post in profile.post_set.all%}
-{{post.title}}
+<li><a href="{% url 'postdetail' post.id %}">{{post.title}}</a> </li>
 {% endfor %} 
+</ul>
 {% endblock content %}
 
 

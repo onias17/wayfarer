@@ -10,6 +10,7 @@ urlpatterns = [
     path('profiles/<int:profile_id>/edit/', views.profiles_edit, name="edit"),
     path('profiles/<int:profile_id>/add_post/', views.add_post, name="add_post"),
 
+    path('posts/<int:post_id>/', views.posts_detail, name ="postdetail"),
 
     path('accounts/signup', views.signup, name='signup')
 

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{post.profile.picture}}
+
+<h1> {{post.title}} </h1>
+City {{post.city}}
+<br>
+Written by {{post.profile.firstname}} {{post.profile.lastname}}
+<br>
+{{post.content}}
+{% endblock content %}
