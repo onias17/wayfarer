@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<img src= "{{'/bedflipped.png'}}" alt="picture">
+<img src= "{{ post.profile.picture.url}}" alt="picture" width="200px"  >
 <br>
-{{ post.profile.picture.url}}
+
 <h1> {{post.title}} </h1>
 City {{post.city}}
 <br>
