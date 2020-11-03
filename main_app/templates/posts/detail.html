@@ -5,11 +5,14 @@
 <br>
 
 <h1> {{post.title}} </h1>
-City {{post.city}}
+
 <br>
 {{post.date}} PST
 <br>
 Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <br>
 {{post.content}}
+<br>
+<a class = "btn-small"href="{% url 'postedit' post.id%} "> Edit </a> <br>
+<a class = "btn-small red" href="{% url 'deletepost' post.id %}"> Delete </a>
 {% endblock content %}
