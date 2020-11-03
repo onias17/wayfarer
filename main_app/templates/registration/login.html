@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Log In</h1>
-  <form action="{% url 'login' %}" method="POST">
+  <form action="{% url 'login' %}" method="POST" class="">
 
     <!-- CSRF TOKEN - Cross Site Request Forgery -->
     {% csrf_token %}
@@ -10,7 +10,7 @@
 
     <input type="hidden" name="next" value="{{ next }}">
 
-    <button class="btn" type="submit">Login</button>
+    <button class="btn blue" type="submit">Login</button>
 
   </form>
 

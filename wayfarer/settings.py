@@ -122,11 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-<<<<<<< HEAD
-LOGIN_REDIRECT_URL = '/'
-=======
 LOGIN_REDIRECT_URL = '/profiles/index'
->>>>>>> submaster
 
 MEDIA_URL = '/media/'
 
