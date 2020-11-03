@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, Post
+from .models import Profile, Post, City
 
 class ProfileCreationForm(forms.ModelForm):
     class Meta:
@@ -10,3 +10,8 @@ class PostCreationForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'city', 'content', ]
+
+class CityCreationForm(forms.ModelForm):
+    class Meta:
+        model = City
+        fields = ['name', 'picture', 'country']
