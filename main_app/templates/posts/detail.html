@@ -12,7 +12,7 @@
 Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <br>
 {{post.content}}
-
+{% if request.user.profile == post.profile%}
 <!-- DELETE POP UP WINDOW-->
 
 <div id = "deletediv">
@@ -26,7 +26,7 @@ Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <br>
 <a class = "btn-small"href="{% url 'postedit' post.id%} "> Edit </a> <br>
 <a id = "firstdelete" class = "btn-small red"> Delete </a>
-
+{% endif %}
 
 <script>
 $('#deletediv').hide()

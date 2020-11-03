@@ -22,6 +22,7 @@ def profiles_index(request):
     context = {'profile': profile, 'posts' : posts}
     return render(request, 'profiles/index.html', context)
 
+@login_required
 def new_profile(request):
     if request.method == "POST":
         profile_form = ProfileCreationForm(request.POST)
@@ -42,7 +43,7 @@ def profiles_detail(request, profile_id):
 
     return render(request, 'profiles/detail.html', context )
 
-
+@login_required
 def profiles_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
 
@@ -76,11 +77,11 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-
+@login_required
 def add_post(request, profile_id):
     if request.method == "POST":
         form = PostCreationForm(request.POST)
-
+        
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.profile_id = profile_id
@@ -99,6 +100,7 @@ def posts_detail(request, post_id):
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
 
+@login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method == "POST":
@@ -111,6 +113,7 @@ def post_edit(request, post_id):
         context = {'postform': postform, 'post' : post}
         return render(request, 'posts/edit.html', context )
 
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
 
@@ -121,6 +124,7 @@ def city_index(request):
     print(cities[0].name)
     return render(request, 'cities/index.html', {"cities" : cities})
 
+@login_required
 def add_city(request):
     if request.method == "POST":
         form = CityCreationForm(request.POST)
