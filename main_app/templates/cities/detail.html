@@ -2,9 +2,13 @@
 
 {% block content %}
 
-{{city.name}}
-{% for post in city.posts_set.all %}
-{{post.title}}
+<h1>{{city.name}}</h1>
+
+{% for post in posts %}
+<div>
+<a href = {% url 'postdetail' post.id %}><h3>{{post.title}}</h3> </a>
+<p>{{post.content}}</p>
+</div>
 {% endfor %}
 {% endblock content %}
 
