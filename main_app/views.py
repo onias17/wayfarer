@@ -80,11 +80,14 @@ def signup(request):
 @login_required
 def add_post(request, profile_id):
     if request.method == "POST":
+        cityname = request.POST.get('city')
+        city = City.objects.get(name= cityname)
         form = PostCreationForm(request.POST)
         
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.profile_id = profile_id
+            new_form.city = city
             
             new_form.save()
 
