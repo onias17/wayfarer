@@ -3,7 +3,9 @@
 {% block content %}
 
 {{city.name}}
-
+{% for post in city.posts_set.all %}
+{{post.title}}
+{% endfor %}
 {% endblock content %}
 
 

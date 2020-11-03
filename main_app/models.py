@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # Create your models here.
-
+CITYLIST = ['La', 'phoenix', 'Irvine']
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -81,6 +81,7 @@ def add_post(request, profile_id):
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.profile_id = profile_id
+            
             new_form.save()
 
         return redirect('detail', profile_id)
