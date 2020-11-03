@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .forms import ProfileCreationForm, PostCreationForm
-from .models import Profile, Post
+from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
+from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -93,3 +93,22 @@ def posts_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
+
+
+def add_city(request):
+    if request.method == "POST":
+        form = CityCreationForm(request.POST)
+
+        if form.is_valid():
+            new_city = form.save()
+            new_city.save()
+            return redirect('citydetail', new_city.id)
+        
+    else :
+        form = CityCreationForm()
+        return render(request, 'cities/new.html', {'form': form})
+
+def city_detail(request, city_id):
+    city = City.objects.get(id=city_id)
+    context = {'city': city}
+    return render(request, 'cities/detail.html', context)
