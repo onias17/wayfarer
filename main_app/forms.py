@@ -12,7 +12,7 @@ class PostCreationForm(forms.ModelForm):
         model = Post
         fields = ('title', 'city', 'content')
 
-    
+
 
 class CityCreationForm(forms.ModelForm):
     class Meta:

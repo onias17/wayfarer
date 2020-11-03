@@ -89,8 +89,9 @@ def add_post(request, profile_id):
 
         return redirect('detail', profile_id)
     else:
+        cities = City.objects.all()
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : CITIES})
+        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : cities})
 
 
 def posts_detail(request, post_id):
