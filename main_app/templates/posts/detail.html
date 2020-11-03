@@ -12,7 +12,32 @@
 Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <br>
 {{post.content}}
+
+<!-- DELETE POP UP WINDOW-->
+
+<div id = "deletediv">
+<h1> Are you sure you want to delete {{post.title}}? </h1>
+<a href = "{% url 'deletepost' post.id %}" class = 'btn-small red'> Yes </a>
+<a id = "no" class = 'btn-small'> No </a>
+</div>
+
+<!-- END OF DELETE POP UP WINDOW-->
+
 <br>
 <a class = "btn-small"href="{% url 'postedit' post.id%} "> Edit </a> <br>
-<a class = "btn-small red" href="{% url 'deletepost' post.id %}"> Delete </a>
+<a id = "firstdelete" class = "btn-small red"> Delete </a>
+
+
+<script>
+$('#deletediv').hide()
+
+$('#firstdelete').click(function(){
+    $('#deletediv').show()
+})
+
+$('#no').click(function(){
+    $('#deletediv').hide()
+})
+</script>
 {% endblock content %}
+

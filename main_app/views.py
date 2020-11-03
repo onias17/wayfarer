@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
 from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
-from smart_selects.db_fields import ChainedForeignKey
+
 
 
 CITIES = [ 'Irvine' , 'New York'] 
