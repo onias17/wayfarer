@@ -31,6 +31,10 @@ class Post(models.Model):
     title = models.CharField(max_length= 100)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+    
+
+    class Meta:
+        ordering = ['-date']
 
 
 

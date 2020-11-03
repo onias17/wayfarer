@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-New City
+New Post
 
-<form method="POST" action = "{% url 'add_city' %}">
+<form method="POST">
 {% csrf_token %}
 
-{{form.as_p}}
+
+{{postform.as_p}}
+
 <input type="submit" class='btn'>
+</form>
 {% endblock content %}

@@ -5,7 +5,10 @@ from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
 from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
+from smart_selects.db_fields import ChainedForeignKey
 
+
+CITIES = [ 'Irvine' , 'New York'] 
 # Create your views here.
 
 def home(request):
@@ -87,13 +90,31 @@ def add_post(request, profile_id):
         return redirect('detail', profile_id)
     else:
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id})
+        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : CITIES})
 
 
 def posts_detail(request, post_id):
     post = Post.objects.get(id=post_id)
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
+
+def post_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method == "POST":
+        postform = PostCreationForm(request.POST, instance=post)
+        if postform.is_valid():
+            updated_post = postform.save()
+            return redirect('postdetail', updated_post.id)
+    else:
+        postform = PostCreationForm(instance=post)
+        context = {'postform': postform, 'post' : post}
+        return render(request, 'posts/edit.html', context )
+
+def post_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+
+    return redirect("profiles_index")
+
 
 
 def add_city(request):
