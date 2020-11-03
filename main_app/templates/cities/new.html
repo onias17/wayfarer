@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-New City
+<h1>Add a New City</h1>
 
 <form method="POST" action = "{% url 'add_city' %}">
 {% csrf_token %}
