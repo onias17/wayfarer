@@ -115,7 +115,9 @@ def post_delete(request, post_id):
 
     return redirect("profiles_index")
 
-
+def city_index(request):
+    cities = City.objects.all()
+    return render(request, 'cities/index.html', {"cities" : cities})
 
 def add_city(request):
     if request.method == "POST":
