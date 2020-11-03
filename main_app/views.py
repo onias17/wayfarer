@@ -117,6 +117,7 @@ def post_delete(request, post_id):
 
 def city_index(request):
     cities = City.objects.all()
+    print(cities[0].name)
     return render(request, 'cities/index.html', {"cities" : cities})
 
 def add_city(request):

@@ -3,7 +3,11 @@
 {% block content %}
 
 <h1>{{city.name}}</h1>
+
+{% if city.picture %}
 <img src = {{city.picture.url}} width = '200px' height = '200px'>
+ {% endif %}
+
 {% for post in posts %}
 <div>
 <a href = {% url 'postdetail' post.id %}><h3>{{post.title}}</h3> </a>
