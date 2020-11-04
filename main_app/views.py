@@ -155,7 +155,8 @@ def add_city(request):
 def city_detail(request, city_id):
     city = City.objects.get(id=city_id)
     posts = Post.objects.filter(city=city)
-    print(posts)
+    for post in posts:
+        post.content = post.content[:100]
     context = {'city': city, 'posts' : posts}
     return render(request, 'cities/detail.html', context)
 

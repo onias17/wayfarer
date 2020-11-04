@@ -12,7 +12,8 @@
 <div>
 <a href = {% url 'postdetail' post.id %}><h3>{{post.title}}</h3> </a>
 <a href = "{% url 'detail' post.profile.id%}"> <h6> Written by {{post.profile.firstname}} {{post.profile.lastname}}</h6></a> 
-<p>{{post.content}}</p>
+<p>{{ post.content }}</p>
+
 </div>
 {% endfor %}
 {% endblock content %}
