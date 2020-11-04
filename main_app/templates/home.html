@@ -4,86 +4,66 @@
 
 {% load static %}
 
-<h2 class=""> Home </h2>
+<div class="bgc">
+    <h2 class="home"> Home </h2>
 
-<script>
-    $(document).ready(function(){
-        $('.carousel').carousel();
-    });
+    {% comment %} materialize carousel {% endcomment %}
+    <hr>
+    <div class="carousel carousel-slider center">
+        <div class="carousel-item">
+            <img src="/media/images/basketball.png" alt="pic1" width="250" height="250">
+        </div>
+        <div class="carousel-item">
+            <img src="/media/images/bedflipped.png" alt="pic1" width="250" height="250">
+        </div>
+        <div class="carousel-item">
+            <img src="/media/images/bg-hero.jpg" alt="pic1" width="250" height="250"> </div>
+        </div>
+    <hr>
 
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true
-    });
-
-    $('.carousel').carousel()
-</script>
-{% comment %} materialize carousel {% endcomment %}
-{% comment %} <div class="carousel carousel-slider">
-    <div class="carousel-item">
-        <div class="container">
-            <a href="#one!">
-                <img src="/media/images/basketball.png" alt="pic1" width="250" height="250">
-            </a>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="container">
-            <a href="#two!">
-                <img src="/media/images/bedflipped.png" alt="pic1" width="250" height="250">
-            </a>
-        </div>
-    </div>
-    <div class="carousel-item">
-        <div class="container">
-            <a href="#three!">
-                <img src="/media/images/bg-hero.jpg" alt="pic1" width="250" height="250">
-            </a>
-        </div>
-    </div>
-</div> {% endcomment %}
-
-{% comment %} bootstrap carousel {% endcomment %}
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="/media/images/basketball.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/media/images/bedflipped.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="/media/images/bg-hero.jpg" alt="Third slide">
-    </div>
-  </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <h3>Wayfare is</h3>
-        </div>
-        <div class="col s4">
-            <h3>Topic</h3>
-            <p>Info...</p>
-        </div>
-        <div class="col s4">
-            <h3>Topic</h3>
-            <p>Info...</p>
-        </div>
-        <div class="col s4">
-            <h3>Topic</h3>
-            <p>Info...</p>
+    <div class="">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center">Recent Activity</h2>
+            </div>
+            <div class="col s4" id="left">
+                <h3>Last City</h3>
+                <p>Info...</p>
+            </div>
+            <div class="col s4" id="left">
+                <h3>Last Post</h3>
+                <p>Info...</p>
+            </div>
+            <div class="col s4" id="right">
+                <h3>Last Profile</h3>
+                <p>Info...</p>
+            </div>
         </div>
     </div>
 </div>
-    
-
-{% endblock content %}
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.carousel');
-        var instances = M.Carousel.init(elems, options);
+        var elems = document.querySelectorAll('.carousel'); 
+        var instances = M.Carousel.init(elems, {
+                fullWidth: true,
+                indicators: true
+        });
     });
 </script>
+
+{% endblock content %}
+{% comment %} <script defer>
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    }); {% endcomment %}
+
+    {% comment %} $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+    });
+
+    $('.carousel').carousel() {% endcomment %}
+{% comment %} </script> {% endcomment %}
+
+
 
