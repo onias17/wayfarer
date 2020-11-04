@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
 from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
-from smart_selects.db_fields import ChainedForeignKey
+
 
 
 CITIES = [ 'Irvine' , 'New York'] 
@@ -22,6 +22,7 @@ def profiles_index(request):
     context = {'profile': profile, 'posts' : posts}
     return render(request, 'profiles/index.html', context)
 
+@login_required
 def new_profile(request):
     if request.method == "POST":
         profile_form = ProfileCreationForm(request.POST)
@@ -42,7 +43,7 @@ def profiles_detail(request, profile_id):
 
     return render(request, 'profiles/detail.html', context )
 
-
+@login_required
 def profiles_edit(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
 
@@ -76,21 +77,25 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-
+@login_required
 def add_post(request, profile_id):
     if request.method == "POST":
+        cityname = request.POST.get('city')
+        city = City.objects.get(name= cityname)
         form = PostCreationForm(request.POST)
-
+        
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.profile_id = profile_id
+            new_form.city = city
             
             new_form.save()
 
         return redirect('detail', profile_id)
     else:
+        cities = City.objects.all()
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : CITIES})
+        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : cities})
 
 
 def posts_detail(request, post_id):
@@ -98,6 +103,7 @@ def posts_detail(request, post_id):
     context = {'post': post}
     return render(request, 'posts/detail.html', context)
 
+@login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method == "POST":
@@ -110,6 +116,7 @@ def post_edit(request, post_id):
         context = {'postform': postform, 'post' : post}
         return render(request, 'posts/edit.html', context )
 
+@login_required
 def post_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
 
@@ -117,8 +124,10 @@ def post_delete(request, post_id):
 
 def city_index(request):
     cities = City.objects.all()
+    print(cities[0].name)
     return render(request, 'cities/index.html', {"cities" : cities})
 
+@login_required
 def add_city(request):
     if request.method == "POST":
         form = CityCreationForm(request.POST)
