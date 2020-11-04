@@ -7,12 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WayFarer {% block title %}{% endblock %}</title>
+  {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> {% endcomment %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% comment %} <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> {% endcomment %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body>
+<body class="">
   <header class="navbar-fixed">
     <nav class = "blue">
       <div class="nav-wrapper">
@@ -21,30 +23,29 @@
         </ul>
         <ul class="right">
           
-          <li><a href="">About</a></li>
+          <li><a href="" class="grey-text text-lighten-2">About</a></li>
 
           {% if user.is_authenticated %}
-            <li><a href="{% url 'add_post' request.user.profile.id%}">Add Post</a></li>
-            <li><a href="{% url 'detail' request.user.profile.id %}"> My Profile</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'add_post' request.user.profile.id %}" class="grey-text text-lighten-2">Add Post</a></li>
+            <li><a href="{% url 'detail' request.user.profile.id %}" class="grey-text text-lighten-2"> My Profile</a></li> 
+            <li><a href="{% url 'city_index' %}" class="grey-text text-lighten-2">All Cities</a></li>
+            <li><a href="{% url 'add_city' %}" class="grey-text text-lighten-2">Add City</a></li>
+            <li><a href="{% url 'logout' %}" class="grey-text text-lighten-2">Logout</a></li>
           {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}" class="grey-text text-lighten-2">Sign Up</a></li>
+            <li><a href="{% url 'login' %}" class="grey-text text-lighten-2">Login</a></li>
           {% endif %}
         </ul>
       </div>
     </nav>
   </header>
-  <a href= "{% url 'city_index' %}"> Cities </a>
-  <br>
-  <a href = "{% url 'add_city' %}"> Add City </a>
-  <main class="container">
+  <main class="container center">
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
-  </footer>
+  {% comment %} <footer class="page-footer blue">
+    <div class="right black-text">All Rights Reserved, &copy; 2019 Cat Collector &nbsp;</div>
+  </footer> {% endcomment %}
 </body>
 </html>
 
