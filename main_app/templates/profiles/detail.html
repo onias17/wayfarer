@@ -5,14 +5,15 @@
 <h1>{{profile.user}}</h1>
 
 
-<img src = "{{profile.picture.url}}" alt ="picture" width ="200px">
+<img src = "{{request.profile.picture.url}}" default='default-profile-img.png' width ="200px">
+{% comment %} {{request.profile.user.picture.url}} {% endcomment %}
 
 <h5> User since : {{profile.user.date_joined}} </h5>
 {{profile.currentcity}}
 
 {%if request.user == profile.user%}
-<a href = "{% url 'edit' profile.id %}">Edit </a>
-<a href = "{% url 'add_post' profile.id %}">New Post </a>
+<a class ='btn blue' href = "{% url 'edit' profile.id %}">Edit </a>
+<a class ='btn btn-default' href = "{% url 'add_post' profile.id %}">New Post </a>
 {% endif %}
 
 <h5> All Posts </h5>
