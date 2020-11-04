@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your models here.
 CITYLIST = ['La', 'phoenix', 'Irvine']
@@ -21,9 +22,14 @@ class City(models.Model):
     name = models.CharField(max_length=50)
     picture = models.ImageField(upload_to="images/", blank = True)
     country = models.CharField(max_length=50)
+    slug = models.SlugField(null=True, default="slug")
 
 def __str__(self):
     return self.name
+
+def get_absolute_url(self):
+    return reverse("citydetail", kwargs={"slug": self.slug})
+
 
 
 class Post(models.Model):

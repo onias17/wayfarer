@@ -5,7 +5,7 @@
 <ul>
 {% for city in cities%}
 
-<li> <a href = "{% url 'citydetail' city.id%}"> {{city.name}} </a> </li>
+<li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
 
 {% endfor %}
 {% endblock content %}

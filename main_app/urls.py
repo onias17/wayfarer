@@ -22,7 +22,7 @@ urlpatterns = [
     ##CITY URLS
     path('cities/new', views.add_city, name="add_city"),
     path('cities/index', views.city_index, name="city_index"),
-    path('cities/<int:city_id>/', views.city_detail, name="citydetail"),
+    path('cities/<slug:slug>/', views.city_detail, name="citydetail"),
     ##SIGN UP URL
     path('accounts/signup', views.signup, name='signup'),
 

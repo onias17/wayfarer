@@ -17,7 +17,8 @@ class PostCreationForm(forms.ModelForm):
 class CityCreationForm(forms.ModelForm):
     class Meta:
         model = City
-        fields = ['name', 'picture', 'country']
+        fields = ['name', 'slug', 'picture', 'country']
+        widgets = { 'slug' : forms.HiddenInput()}
 
 
 

@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 import datetime as dt
 import humanize
+from django.utils.text import slugify
 
 
 
@@ -138,25 +139,24 @@ def post_delete(request, post_id):
 
 def city_index(request):
     cities = City.objects.all()
-    print(cities[0].name)
     return render(request, 'cities/index.html', {"cities" : cities})
 
 @login_required
 def add_city(request):
     if request.method == "POST":
         form = CityCreationForm(request.POST)
-
         if form.is_valid():
             new_city = form.save()
+            new_city.slug = slugify(new_city.name)
             new_city.save()
-            return redirect('citydetail', new_city.id)
+            return redirect('citydetail', new_city.slug)
         
     else :
         form = CityCreationForm()
         return render(request, 'cities/new.html', {'form': form})
 
-def city_detail(request, city_id):
-    city = City.objects.get(id=city_id)
+def city_detail(request, slug):
+    city = City.objects.get(slug=slug)
     posts = Post.objects.filter(city=city)
     for post in posts:
         post.content = post.content[:100]
