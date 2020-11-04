@@ -7,6 +7,9 @@ from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
+import datetime as dt
+import humanize
+
 
 
 
@@ -157,6 +160,9 @@ def city_detail(request, city_id):
     posts = Post.objects.filter(city=city)
     for post in posts:
         post.content = post.content[:100]
+
+    for post in posts:
+        post.date = humanize.naturalday(post.date).title()
     context = {'city': city, 'posts' : posts}
     return render(request, 'cities/detail.html', context)
 
