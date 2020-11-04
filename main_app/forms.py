@@ -5,7 +5,8 @@ from django.contrib import admin
 class ProfileCreationForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [ 'email', 'firstname', 'lastname', 'currentcity', 'picture' ]
+        fields = [ 'email', 'slug', 'firstname', 'lastname', 'currentcity', 'picture' ]
+        widgets = { 'slug' : forms.HiddenInput()}
 
 class PostCreationForm(forms.ModelForm):
     class Meta:

@@ -35,6 +35,7 @@ def new_profile(request):
         if profile_form.is_valid():
             new_profile = profile_form.save(commit=False)
             new_profile.user = request.user
+            new_profile.slug = slugify(new_profile.firstname)
             new_profile.save()
 
             email = request.POST.get('email', '')
@@ -46,27 +47,27 @@ def new_profile(request):
             """
             send_mail('Welcome!', data, "Wayfarer",
             [email], fail_silently=False)
-            return redirect('detail', new_profile.id)
+            return redirect('detail', new_profile.slug)
     else:
         profile_form = ProfileCreationForm()
         context = {'profile_form' : profile_form}
         return render(request, 'profiles/new.html', context)
 
-def profiles_detail(request, profile_id):
-    profile = Profile.objects.get(id=profile_id)
+def profiles_detail(request, slug):
+    profile = Profile.objects.get(slug=slug)
     context = {'profile' : profile}
 
     return render(request, 'profiles/detail.html', context )
 
 @login_required
-def profiles_edit(request, profile_id):
-    profile = Profile.objects.get(id=profile_id)
+def profiles_edit(request, slug):
+    profile = Profile.objects.get(slug=slug)
 
     if request.method == "POST":
         profile_form = ProfileCreationForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
             updated_profile = profile_form.save()
-            return redirect('detail', updated_profile.id)
+            return redirect('detail', slug)
     else:
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
@@ -93,24 +94,26 @@ def signup(request):
 
 
 @login_required
-def add_post(request, profile_id):
+def add_post(request, slug):
     if request.method == "POST":
         cityname = request.POST.get('city')
         city = City.objects.get(name= cityname)
+        profile = Profile.objects.get(slug=slug)
         form = PostCreationForm(request.POST)
         
         if form.is_valid():
             new_form = form.save(commit=False)
-            new_form.profile_id = profile_id
+            new_form.profile = profile
             new_form.city = city
             
             new_form.save()
 
-        return redirect('detail', profile_id)
+        return redirect('detail', slug)
     else:
         cities = City.objects.all()
+        profile = Profile.objects.get(slug=slug)
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : cities})
+        return render(request, 'posts/new.html', {'form': form, 'profile' : profile, 'citylist' : cities})
 
 
 def posts_detail(request, post_id):

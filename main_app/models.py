@@ -13,9 +13,13 @@ class Profile(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length = 50)
     email = models.EmailField(blank = True)
+    slug = models.SlugField(null=True, default='slug')
 
     def __str__(self):
         return self.user.username
+
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"slug": self.slug})
 
 
 class City(models.Model):
@@ -24,11 +28,11 @@ class City(models.Model):
     country = models.CharField(max_length=50)
     slug = models.SlugField(null=True, default="slug")
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-def get_absolute_url(self):
-    return reverse("citydetail", kwargs={"slug": self.slug})
+    def get_absolute_url(self):
+        return reverse("citydetail", kwargs={"slug": self.slug})
 
 
 
