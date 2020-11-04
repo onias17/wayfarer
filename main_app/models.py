@@ -7,7 +7,7 @@ CITYLIST = ['La', 'phoenix', 'Irvine']
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    picture = models.ImageField(null=True, blank=True, upload_to="images/", default='/images/default-profile-img.png')
+    picture = models.ImageField(blank=True, upload_to="images/", default='/images/default-profile-img.png')
     currentcity = models.CharField(max_length=100)
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length = 50)
