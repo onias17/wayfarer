@@ -28,7 +28,7 @@ def __str__(self):
 class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     content = models.TextField(max_length=1000)
-    title = models.CharField(max_length= 100)
+    title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     
