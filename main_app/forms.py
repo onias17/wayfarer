@@ -5,7 +5,7 @@ from django.contrib import admin
 class ProfileCreationForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [ 'firstname', 'lastname', 'currentcity', 'picture' ]
+        fields = [ 'email', 'firstname', 'lastname', 'currentcity', 'picture' ]
 
 class PostCreationForm(forms.ModelForm):
     class Meta:

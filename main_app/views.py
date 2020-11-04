@@ -5,6 +5,8 @@ from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
 from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 
@@ -25,12 +27,21 @@ def profiles_index(request):
 @login_required
 def new_profile(request):
     if request.method == "POST":
-        profile_form = ProfileCreationForm(request.POST)
+        profile_form = ProfileCreationForm(request.POST, request.FILES)
         if profile_form.is_valid():
             new_profile = profile_form.save(commit=False)
             new_profile.user = request.user
             new_profile.save()
 
+            email = request.POST.get('email', '')
+            data = """ 
+            Hello There!
+            Welcome to Wayfarer, the site with all of the information you need for your future travels. 
+            We hope you enjoy our site.
+            -Wayfarer
+            """
+            send_mail('Welcome!', data, "Wayfarer",
+            [email], fail_silently=False)
             return redirect('detail', new_profile.id)
     else:
         profile_form = ProfileCreationForm()
@@ -147,3 +158,14 @@ def city_detail(request, city_id):
     print(posts)
     context = {'city': city, 'posts' : posts}
     return render(request, 'cities/detail.html', context)
+
+def success(request):
+    email = request.POST.get('email', '')
+    data = """ 
+    Hi welcome
+    to
+    Wayfarer
+    """
+    send_mail('Welcome!', data, "Wayfarer"
+    [email], fail_silently=False)
+    return render(request, '')
