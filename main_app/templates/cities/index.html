@@ -1,44 +1,105 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<<<<<<< HEAD
- <div class="row">
-    <h1> All cities </h1>
 
-    <nav class="navbar-fixed">
-    <nav class = "blue">
-      <div class="nav-wrapper">
-      {% comment %} <nav class="nav-extended white pushpin z-depth-3">
-      <div class="nav-wrapper container"> {% endcomment %}
-    <ul>    
-    <!-- Page Layout here -->
-   
+<!-- Dropdown Structure Bar instead of a searchbar for cities, maybe a dropdown for premade cities in system-->
+{% comment %} <ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav> {% endcomment %}
 
-      <div class="col s3">
-        <!-- Grey navigation panel -->
-      </div>
+<!-- Create container for Cities on left and selected city/post on right-->
+<!-- Page Layout here -->
+    
 
-      <div class="col s9">
-        <!-- Teal page content  -->
-      </div>
+    <!--- adding and blending old cities to new container-->
+    {% comment %} <div class="row" id="all-cities">
+    <div class="col s4" id="city-row">
 
-    </div>
-{% for city in cities%}
-=======
-<div class="row">
-    <div class="col s4">
-        <h1> Cities </h1>
         <ul>
-        {% for city in cities%}
->>>>>>> submaster
-
-        <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-        {% endfor %}
+        
+        <div class="city-list">
+        <li> <a href =  </a> </li>
+        </div>
+        
         </ul>
+    </div> {% endcomment %}
+<div class="full-container">
+<div class="row">
+      <div class="col s4" id="grey-panel">
+      <h2 class="header">Cities</h2>
+        <!-- Grey navigation panel -->
+        <div class="col-s12-m7" id="card-box-1">
+    
+    <div class="card horizontal" width="" height="">
+      <div class="card-image" id="city-card-image">
+        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="">
+        {% comment %} <img class="materialboxed" width="650" src="/media/images/LA Night.jpg"> {% endcomment %}
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h6>Los Angeles</h6>
+        </div>
+        <div class="card-action">
+        {% for city in cities%}
+          <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
+          {% endfor %}
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col s8 center">
+  </div>
+  <div class="col-s12-m7" id="card-box-2">
+    <h2 class="header"></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/media/images/SF city.jpg" alt="card-hz1" width="" height="">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h6>San Francisco</h6>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-s12-m7" id="card-box-3">
+    <h2 class="header"></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="/media/images/NY city park.jpeg" alt="card-hz1" width="" height="">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h6>New York</h6>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+
+    <div class="col s8">
+        <!-- Teal page content  -->
+        <div class="">
             <h1> Selected{{ city.id }} </h1>
+            <img src="/media/images/LA Night.jpg">
             <ul>
             {% for city in cities%}
 
@@ -46,7 +107,7 @@
             {% endfor %}
             </ul>
         </div>
-        <div class="col s8 offset-s4">
+        {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
             <h1> Posts </h1>
             <ul>
             {% for city in cities%}
@@ -57,6 +118,30 @@
         </div>
     </div>
 </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="row">
+</div> 
+
+<script>
+$(".dropdown-trigger").dropdown(hover: false);
+
+{% comment %} document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems, options);
+    }); {% endcomment %}
+
+$(document).ready(function(){
+    $('.slider').slider();
+    });
+
+</script>
 
 {% endblock content %}
 
