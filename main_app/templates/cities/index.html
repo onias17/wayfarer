@@ -1,8 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> All cities </h1>
-<ul>
+ <div class="row">
+    <h1> All cities </h1>
+
+    <nav class="navbar-fixed">
+    <nav class = "blue">
+      <div class="nav-wrapper">
+      {% comment %} <nav class="nav-extended white pushpin z-depth-3">
+      <div class="nav-wrapper container"> {% endcomment %}
+    <ul>    
+    <!-- Page Layout here -->
+   
+
+      <div class="col s3">
+        <!-- Grey navigation panel -->
+      </div>
+
+      <div class="col s9">
+        <!-- Teal page content  -->
+      </div>
+
+    </div>
 {% for city in cities%}
 
 <li> <a href = "{% url 'citydetail' city.id%}"> {{city.name}} </a> </li>
