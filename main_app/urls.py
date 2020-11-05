@@ -14,6 +14,7 @@ urlpatterns = [
     path('profiles/<slug:slug>/edit/', views.profiles_edit, name="edit"),
 
     ##POST URLS
+    path('cities/<city_id>/add_post', views.add_citypost, name='add_citypost'),
     path('profiles/<slug:slug>/add_post/', views.add_post, name="add_post"),
     path('posts/<int:post_id>/', views.posts_detail, name ="postdetail"),
     path('posts/<int:post_id>/edit', views.post_edit, name="postedit"),
