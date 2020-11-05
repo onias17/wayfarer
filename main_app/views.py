@@ -35,7 +35,7 @@ def new_profile(request):
         if profile_form.is_valid():
             new_profile = profile_form.save(commit=False)
             new_profile.user = request.user
-            new_profile.slug = slugify(new_profile.firstname)
+            new_profile.slug = slugify(new_profile.user.username)
             new_profile.save()
 
             email = request.POST.get('email', '')
