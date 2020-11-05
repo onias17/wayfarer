@@ -5,7 +5,8 @@ from django.contrib import admin
 class ProfileCreationForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = [ 'firstname', 'lastname', 'currentcity', 'picture' ]
+        fields = [ 'email', 'slug', 'firstname', 'lastname', 'currentcity', 'picture' ]
+        widgets = { 'slug' : forms.HiddenInput()}
 
 class PostCreationForm(forms.ModelForm):
     class Meta:
@@ -17,7 +18,8 @@ class PostCreationForm(forms.ModelForm):
 class CityCreationForm(forms.ModelForm):
     class Meta:
         model = City
-        fields = ['name', 'picture', 'country']
+        fields = ['name', 'slug', 'picture', 'country']
+        widgets = { 'slug' : forms.HiddenInput()}
 
 
 

@@ -10,9 +10,12 @@
 
 {% for post in posts %}
 <div>
-<a href = {% url 'postdetail' post.id %}><h3>{{post.title}}</h3> </a>
-<a href = "{% url 'detail' post.profile.id%}"> <h6> Written by {{post.profile.firstname}} {{post.profile.lastname}}</h6></a> 
-<p>{{post.content}}</p>
+<h3>{{post.title}}</h3>
+ <h6> Written by <a href = "{% url 'detail' post.profile.slug%}"> {{post.profile.firstname}} {{post.profile.lastname}}</a> </h6>
+<p>{{ post.content }}</p>
+{{post.date}}
+<a href = {% url 'postdetail' post.id%}> View More </a>
+
 </div>
 {% endfor %}
 {% endblock content %}
