@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<<<<<<< HEAD
  <div class="row">
     <h1> All cities </h1>
 
@@ -23,10 +24,40 @@
 
     </div>
 {% for city in cities%}
+=======
+<div class="row">
+    <div class="col s4">
+        <h1> Cities </h1>
+        <ul>
+        {% for city in cities%}
+>>>>>>> submaster
 
-<li> <a href = "{% url 'citydetail' city.id%}"> {{city.name}} </a> </li>
+        <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col s8 center">
+            <h1> Selected{{ city.id }} </h1>
+            <ul>
+            {% for city in cities%}
 
-{% endfor %}
+            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="col s8 offset-s4">
+            <h1> Posts </h1>
+            <ul>
+            {% for city in cities%}
+
+            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
-</ul>
+
