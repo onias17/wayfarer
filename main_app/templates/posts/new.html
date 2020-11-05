@@ -3,7 +3,7 @@
 {% block content %}
 New Post
 
-<form method="POST" action="{% url 'add_post' profile.slug %}">
+<form method="POST" action="{% url 'add_post' profile.slug %}" enctype="multipart/form-data">
 {% csrf_token %}
 
 {{form.as_p}}

@@ -35,7 +35,9 @@ Written by {{post.profile.firstname}} {{post.profile.lastname}}
 {% endif %}
 
 <br>
-
+{% if post.picture %}
+ POST PICTURE : <img src="{{post.picture.url}}" width="200px" alt="picture"> 
+{% endif %}
 <!-- Comment section--> 
 Number of comments: {{post.comment_set.count}}
 

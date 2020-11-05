@@ -98,7 +98,7 @@ def add_post(request, slug):
     profile = Profile.objects.get(slug=slug)
     if request.method == "POST":
         cityname = request.POST.get('city')
-        form = PostCreationForm(request.POST)
+        form = PostCreationForm(request.POST, request.FILES)
         for city in City.objects.all():
             if city.name == cityname:
                 if form.is_valid():
@@ -106,6 +106,7 @@ def add_post(request, slug):
                     new_form.profile = profile
                     new_form.city = city
                     new_form.save()
+                    return redirect('home')
         else: 
             createdcity = City.objects.create(name=cityname, slug=slugify(cityname))
             new_form = form.save(commit=False)
@@ -141,7 +142,7 @@ def posts_detail(request, post_id):
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method == "POST":
-        postform = PostCreationForm(request.POST, instance=post)
+        postform = PostCreationForm(request.POST, request.FILES, instance=post,)
         if postform.is_valid():
             updated_post = postform.save()
             return redirect('postdetail', updated_post.id)
@@ -202,7 +203,7 @@ def add_citypost(request, city_id):
     if request.method == "POST":
         city = City.objects.get(id=city_id)
         profile = Profile.objects.get(id=request.user.profile.id)
-        form = PostCreationForm(request.POST)
+        form = PostCreationForm(request.POST, request.FILES)
         
 
         if form.is_valid():

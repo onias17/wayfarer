@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>New Post For {{city.name}}</h1>
-<form method="POST" action="{% url 'add_citypost' city.id %}">
+<form method="POST" action="{% url 'add_citypost' city.id %}" enctype= "multipart/form-data">
 {% csrf_token %}
 
 {{form.as_p}}

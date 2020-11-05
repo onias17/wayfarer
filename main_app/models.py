@@ -42,6 +42,7 @@ class Post(models.Model):
     title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+    picture = models.ImageField(upload_to="images/", blank=True)
     
 
     class Meta:
