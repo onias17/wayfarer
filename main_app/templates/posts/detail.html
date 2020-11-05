@@ -34,7 +34,33 @@ Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <a id = "firstdelete" class = "btn-small red"> Delete </a>
 {% endif %}
 
+<br>
+
+<!-- Comment section--> 
+Number of comments: {{post.comment_set.count}}
+
+{% if request.user.profile %}
+ <form action = "{% url 'add_comment' post.id %}" method = "POST">
+{% csrf_token %} 
+ {{comment_form.as_p}}
+ <!---->
+<input class = 'btn' type ="submit">
+</form> 
+{% endif %}
+ {% for comment in post.comment_set.all%}
+ User who made comment: {{comment.profile}}
+ 
+ <br>
+ 
+  <img src="{{comment.profile.picture.url}}" width ="75px">
+Comment: {{comment.content}} 
+{% if comment.profile == request.user.profile %}
+<a class = "btn" href="{% url 'delete_comment' comment.id %}"> Delete </a>
+{% endif %}
+{% endfor %} 
+
 <!-- Modal Trigger -->
+
 
 
 

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, Post, City
+from .models import Profile, Post, City, Comment
 from django.contrib import admin
 
 class ProfileCreationForm(forms.ModelForm):
@@ -21,6 +21,11 @@ class CityCreationForm(forms.ModelForm):
         fields = ['name', 'slug', 'picture', 'country']
         widgets = { 'slug' : forms.HiddenInput()}
 
+
+class CommentCreationForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
 
 
 
