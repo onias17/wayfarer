@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 
 # Create your models here.
-CITYLIST = ['La', 'phoenix', 'Irvine']
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -42,10 +42,23 @@ class Post(models.Model):
     title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+    picture = models.ImageField(upload_to="images/", blank=True)
     
 
     class Meta:
         ordering = ['-date']
+
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
+    content = models.TextField(max_length=400)
+    date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return f'{self.profile}s comment on {self.post.profile}s post'
 
 
 
