@@ -13,17 +13,19 @@
     </ul>
     </div>
     <div class="col s4">
-        <img src = "{{profile.picture.url}}" alt ="picture" width ="200px" class="image">
+        <img src = "{{request.user.profile.picture.url}}" default='default-profile-img.png' alt ="picture" width ="200px" class="image">
     </div>
     <div class="col s4">
             {%if request.user == profile.user%}
         <h5 class="light-green-text text-darken-2">City: {{profile.currentcity}}</h5>
-        <a href = "{% url 'edit' profile.id %}">Edit </a>
-        <a href = "{% url 'add_post' profile.id %}">New Post </a>
+        <a href = "{% url 'edit' profile.slug %}">Edit </a>
+        <a href = "{% url 'add_post' profile.slug %}">New Post </a>
         {% endif %}
         <p> User since : {{profile.user.date_joined}} </p>
     </div>
 </div>
+
+</ul>
 {% endblock content %}
 
 

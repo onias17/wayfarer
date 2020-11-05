@@ -5,6 +5,12 @@ from django.contrib.auth import login
 from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
 from .models import Profile, Post, City
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.conf import settings
+import datetime as dt
+import humanize
+from django.utils.text import slugify
+
 
 
 
@@ -25,33 +31,43 @@ def profiles_index(request):
 @login_required
 def new_profile(request):
     if request.method == "POST":
-        profile_form = ProfileCreationForm(request.POST)
+        profile_form = ProfileCreationForm(request.POST, request.FILES)
         if profile_form.is_valid():
             new_profile = profile_form.save(commit=False)
             new_profile.user = request.user
+            new_profile.slug = slugify(new_profile.firstname)
             new_profile.save()
 
-            return redirect('detail', new_profile.id)
+            email = request.POST.get('email', '')
+            data = """ 
+            Hello There!
+            Welcome to Wayfarer, the site with all of the information you need for your future travels. 
+            We hope you enjoy our site.
+            -Wayfarer
+            """
+            send_mail('Welcome!', data, "Wayfarer",
+            [email], fail_silently=False)
+            return redirect('detail', new_profile.slug)
     else:
         profile_form = ProfileCreationForm()
         context = {'profile_form' : profile_form}
         return render(request, 'profiles/new.html', context)
 
-def profiles_detail(request, profile_id):
-    profile = Profile.objects.get(id=profile_id)
+def profiles_detail(request, slug):
+    profile = Profile.objects.get(slug=slug)
     context = {'profile' : profile}
 
     return render(request, 'profiles/detail.html', context )
 
 @login_required
-def profiles_edit(request, profile_id):
-    profile = Profile.objects.get(id=profile_id)
+def profiles_edit(request, slug):
+    profile = Profile.objects.get(slug=slug)
 
     if request.method == "POST":
         profile_form = ProfileCreationForm(request.POST, request.FILES, instance=profile)
         if profile_form.is_valid():
             updated_profile = profile_form.save()
-            return redirect('detail', updated_profile.id)
+            return redirect('detail', slug)
     else:
         profile_form  = ProfileCreationForm(instance=profile)
         context = {'profileform': profile_form, 'profile' : profile}
@@ -78,24 +94,26 @@ def signup(request):
 
 
 @login_required
-def add_post(request, profile_id):
+def add_post(request, slug):
     if request.method == "POST":
         cityname = request.POST.get('city')
         city = City.objects.get(name= cityname)
+        profile = Profile.objects.get(slug=slug)
         form = PostCreationForm(request.POST)
         
         if form.is_valid():
             new_form = form.save(commit=False)
-            new_form.profile_id = profile_id
+            new_form.profile = profile
             new_form.city = city
             
             new_form.save()
 
-        return redirect('detail', profile_id)
+        return redirect('detail', slug)
     else:
         cities = City.objects.all()
+        profile = Profile.objects.get(slug=slug)
         form = PostCreationForm()
-        return render(request, 'posts/new.html', {'form': form, 'profile_id' : profile_id, 'citylist' : cities})
+        return render(request, 'posts/new.html', {'form': form, 'profile' : profile, 'citylist' : cities})
 
 
 def posts_detail(request, post_id):
@@ -124,26 +142,40 @@ def post_delete(request, post_id):
 
 def city_index(request):
     cities = City.objects.all()
-    print(cities[0].name)
     return render(request, 'cities/index.html', {"cities" : cities})
 
 @login_required
 def add_city(request):
     if request.method == "POST":
         form = CityCreationForm(request.POST)
-
         if form.is_valid():
             new_city = form.save()
+            new_city.slug = slugify(new_city.name)
             new_city.save()
-            return redirect('citydetail', new_city.id)
+            return redirect('citydetail', new_city.slug)
         
     else :
         form = CityCreationForm()
         return render(request, 'cities/new.html', {'form': form})
 
-def city_detail(request, city_id):
-    city = City.objects.get(id=city_id)
+def city_detail(request, slug):
+    city = City.objects.get(slug=slug)
     posts = Post.objects.filter(city=city)
-    print(posts)
+    for post in posts:
+        post.content = post.content[:100]
+
+    for post in posts:
+        post.date = humanize.naturalday(post.date).title()
     context = {'city': city, 'posts' : posts}
     return render(request, 'cities/detail.html', context)
+
+def success(request):
+    email = request.POST.get('email', '')
+    data = """ 
+    Hi welcome
+    to
+    Wayfarer
+    """
+    send_mail('Welcome!', data, "Wayfarer"
+    [email], fail_silently=False)
+    return render(request, '')

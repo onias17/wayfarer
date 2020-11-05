@@ -26,8 +26,8 @@
           <li><a href="" class="grey-text text-lighten-2">About</a></li>
 
           {% if user.is_authenticated %}
-            <li><a href="{% url 'add_post' request.user.profile.id %}" class="grey-text text-lighten-2">Add Post</a></li>
-            <li><a href="{% url 'detail' request.user.profile.id %}" class="grey-text text-lighten-2"> My Profile</a></li> 
+            <li><a href="{% url 'add_post' request.user.profile.slug %}" class="grey-text text-lighten-2">Add Post</a></li>
+            <li><a href="{% url 'detail' request.user.profile.slug %}" class="grey-text text-lighten-2"> My Profile</a></li> 
             <li><a href="{% url 'city_index' %}" class="grey-text text-lighten-2">All Cities</a></li>
             <li><a href="{% url 'add_city' %}" class="grey-text text-lighten-2">Add City</a></li>
             <li><a href="{% url 'logout' %}" class="grey-text text-lighten-2">Logout</a></li>
