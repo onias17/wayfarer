@@ -1,0 +1,34 @@
+body {
+    background-color: #e0e0e0;
+}
+
+.profile {
+    margin-bottom: 30px;
+    margin-top: 100px;
+}
+
+#left {
+    border-left: 1px solid;
+}
+
+#right {
+    border-right: 1px solid;
+    border-left: 1px solid;
+}
+
+.hoverable:hover {
+    background-color: #03a9f4;
+}
+
+.image {
+    margin: 25px;
+    border-radius: 50%;
+    border: 5px solid;
+    border-color: #03a9f4;
+    width: 150px;
+    height: 150px;
+}
+
+#profile-row {
+    border-top: 1px solid;
+}
