@@ -3,7 +3,7 @@
 {% block content %}
 New Post
 
-<form method="POST" action="{% url 'add_post' profile.slug %}">
+<form method="POST" action="{% url 'add_post' profile.slug %}" enctype="multipart/form-data">
 {% csrf_token %}
 
 {{form.as_p}}
@@ -12,11 +12,13 @@ New Post
 <input type = 'text' name = 'content'>
 
 -->
-<select name = "city" class= "browser-default">
+{% comment %} <select name = "city" class= "browser-default">
 {% for city in citylist%}
 <option value="{{city.name}}"> {{city.name}} </option>
 {% endfor %}
-</select>
+</select> {% endcomment %}
+
+<input type = "text" name="city">
 
 <br> <br>
 <input type="submit" class='btn'>

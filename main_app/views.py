@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm
-from .models import Profile, Post, City
+from .forms import ProfileCreationForm, PostCreationForm, CityCreationForm, CommentCreationForm
+from .models import Profile, Post, City, Comment
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.conf import settings
@@ -95,37 +95,54 @@ def signup(request):
 
 @login_required
 def add_post(request, slug):
+    profile = Profile.objects.get(slug=slug)
     if request.method == "POST":
         cityname = request.POST.get('city')
-        city = City.objects.get(name= cityname)
-        profile = Profile.objects.get(slug=slug)
-        form = PostCreationForm(request.POST)
-        
-        if form.is_valid():
+        form = PostCreationForm(request.POST, request.FILES)
+        for city in City.objects.all():
+            if city.name == cityname:
+                if form.is_valid():
+                    new_form = form.save(commit=False)
+                    new_form.profile = profile
+                    new_form.city = city
+                    new_form.save()
+                    return redirect('home')
+        else: 
+            createdcity = City.objects.create(name=cityname, slug=slugify(cityname))
             new_form = form.save(commit=False)
             new_form.profile = profile
-            new_form.city = city
-            
+            new_form.city = createdcity
             new_form.save()
-
-        return redirect('detail', slug)
+        return redirect('home')
+    ##GET REQUEST    
     else:
         cities = City.objects.all()
-        profile = Profile.objects.get(slug=slug)
         form = PostCreationForm()
         return render(request, 'posts/new.html', {'form': form, 'profile' : profile, 'citylist' : cities})
 
 
 def posts_detail(request, post_id):
     post = Post.objects.get(id=post_id)
-    context = {'post': post}
+    comments = Comment.objects.all
+    comments_count = Comment.objects.all()
+    
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentCreationForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+    else:
+        comment_form = CommentCreationForm()
+    context = {'post': post, "comment_form" : comment_form, 'comments' : comments, 'new_comment' : new_comment, "comments_count": comments_count}
     return render(request, 'posts/detail.html', context)
 
 @login_required
 def post_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method == "POST":
-        postform = PostCreationForm(request.POST, instance=post)
+        postform = PostCreationForm(request.POST, request.FILES, instance=post,)
         if postform.is_valid():
             updated_post = postform.save()
             return redirect('postdetail', updated_post.id)
@@ -186,7 +203,7 @@ def add_citypost(request, city_id):
     if request.method == "POST":
         city = City.objects.get(id=city_id)
         profile = Profile.objects.get(id=request.user.profile.id)
-        form = PostCreationForm(request.POST)
+        form = PostCreationForm(request.POST, request.FILES)
         
 
         if form.is_valid():
@@ -201,3 +218,21 @@ def add_citypost(request, city_id):
         profile = Profile.objects.get(id=request.user.profile.id)
         form = PostCreationForm()
         return render(request, 'posts/new2.html', {'form':form, 'profile' : profile, "city" : city})
+
+def add_comment(request, post_id):
+    form = CommentCreationForm(request.POST)
+    post = Post.objects.get(id=post_id)
+    profile = Profile.objects.get(id = request.user.profile.id)
+    if form.is_valid():
+        new_form = form.save(commit=False)
+        new_form.post = post
+        new_form.profile = profile
+        new_form.save()
+
+    return redirect('postdetail', post_id)
+
+def delete_comment(request, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    post = comment.post
+    comment.delete()
+    return redirect('postdetail', post.id)
