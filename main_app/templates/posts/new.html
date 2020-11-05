@@ -12,11 +12,13 @@ New Post
 <input type = 'text' name = 'content'>
 
 -->
-<select name = "city" class= "browser-default">
+{% comment %} <select name = "city" class= "browser-default">
 {% for city in citylist%}
 <option value="{{city.name}}"> {{city.name}} </option>
 {% endfor %}
-</select>
+</select> {% endcomment %}
+
+<input type = "text" name="city">
 
 <br> <br>
 <input type="submit" class='btn'>

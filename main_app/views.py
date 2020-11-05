@@ -97,18 +97,23 @@ def signup(request):
 def add_post(request, slug):
     if request.method == "POST":
         cityname = request.POST.get('city')
-        city = City.objects.get(name= cityname)
         profile = Profile.objects.get(slug=slug)
         form = PostCreationForm(request.POST)
-        
-        if form.is_valid():
+        for city in City.objects.all():
+            if city.name == cityname:
+                if form.is_valid():
+                    new_form = form.save(commit=False)
+                    new_form.profile = profile
+                    new_form.city = city
+                    new_form.save()
+        else: 
+            createdcity = City.objects.create(name=cityname, slug=slugify(cityname))
             new_form = form.save(commit=False)
             new_form.profile = profile
-            new_form.city = city
-            
+            new_form.city = createdcity
             new_form.save()
-
-        return redirect('detail', slug)
+        return redirect('home')
+    ##GET REQUEST    
     else:
         cities = City.objects.all()
         profile = Profile.objects.get(slug=slug)
