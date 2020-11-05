@@ -179,3 +179,25 @@ def success(request):
     send_mail('Welcome!', data, "Wayfarer"
     [email], fail_silently=False)
     return render(request, '')
+
+
+##TESTING OUT ADDING A CITY FROM CITY PAGE
+def add_citypost(request, city_id):
+    if request.method == "POST":
+        city = City.objects.get(id=city_id)
+        profile = Profile.objects.get(id=request.user.profile.id)
+        form = PostCreationForm(request.POST)
+        
+
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.profile = profile
+            new_form.city = city
+            new_form.save()
+
+        return redirect('postdetail', new_form.id)
+    else:
+        city = City.objects.get(id=city_id)
+        profile = Profile.objects.get(id=request.user.profile.id)
+        form = PostCreationForm()
+        return render(request, 'posts/new2.html', {'form':form, 'profile' : profile, "city" : city})
