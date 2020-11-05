@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+New Post
+
+<form method="POST" action="{% url 'add_post' profile.slug %}">
+{% csrf_token %}
+
+{{form.as_p}}
+<!--- TESTING OUT FORMS
+<input type = 'text' name = 'title'>
+<input type = 'text' name = 'content'>
+
+-->
+<select name = "city" class= "browser-default">
+{% for city in citylist%}
+<option value="{{city.name}}"> {{city.name}} </option>
+{% endfor %}
+</select>
+
+<br> <br>
+<input type="submit" class='btn'>
+</form>
+{% endblock content %}

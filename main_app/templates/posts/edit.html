@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+New Post
+
+<form method="POST">
+{% csrf_token %}
+
+
+{{postform.as_p}}
+
+<input type="submit" class='btn'>
+</form>
+{% endblock content %}
