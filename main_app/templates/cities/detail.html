@@ -2,159 +2,44 @@
 
 {% block content %}
 
-{% comment %} <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav> {% endcomment %}
 
-<!-- Create container for Cities on left and selected city/post on right-->
-<!-- Page Layout here -->
-    <div class="row">
-
-    <!--- adding and blending old cities to new container-->
-    {% comment %} <div class="row" id="all-cities">
-    <div class="col s4" id="city-row">
-
-        <ul>
-        
-        <div class="city-list">
-        <li> <a href =  </a> </li>
-        </div>
-        
-        </ul>
-    </div> {% endcomment %}
-<!--- Cities Index ----------------------------------------------->
-      <div class="col s4" id="grey-panel">
-        <!-- Grey navigation panel -->
-        <div class="col-s12-m7" id="card-box-1">
-    <h2 class="header">Cities</h2>
-    <div class="card horizontal" width="300" height="300">
-      <div class="card-image" id="city-card-image">
-        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>Los Angeles</h6>
-        </div>
-        <div class="card-action">
-        {% for city in cities%}
-          <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-s12-m7" id="card-box-2">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/SF city.jpg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>San Francisco</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-s12-m7" id="card-box-3">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/NY city park.jpeg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>New York</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      </div>
-<!------------CITT DETAILS ----------------------------------------->
-    <div class="col s8">
+      <div class="col s12">
         <!-- Teal page content  -->
-        <div class="">
-            <h1> {{city.name}} </h1>
-            <ul>
-            {% for city in cities%}
-
-            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-            {% endfor %}
-            </ul>
-        </div>
-        {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
-            <h1> Posts </h1>
+        <h1>{{city.name}}</h1>
+        <img src="{{ city.picture.url }}" width="700" height="500">
+         
+        <h1> Posts </h1>
+        <a class= "btn-small blue" href="{% url "add_citypost" city.id %}"> add post </a>
             <ul>
             {% for post in posts %}
-            <div>
-                <h3>{{post.title}}</h3>
-                <h6> Written by <a href = "{% url 'detail' post.profile.slug%}"> {{post.profile.firstname}} {{post.profile.lastname}}</a> </h6>
-                <p>{{ post.content }}</p>
-                    {{post.date}}
-            <a href = {% url 'postdetail' post.id%}> View More </a>
+            <a href = {% url 'postdetail' post.id%}>
+            
+            <div class="post-ul blue-text card horizontal">
 
+            <div class="card-image">
+            <img src="{{ post.picture.url }}" width="150" height="150">
             </div>
+            <div class="card-stacked" id="stacked-detail-city">
+            <div class="card-content">
+                <h3 class="blue-text">{{post.title}}</h3>
+                <h6 class= "blue-text"> Written by <a href = "{% url 'detail' post.profile.slug%}"> {{post.profile.firstname}} {{post.profile.lastname}}</a> </h6>
+                <p class="blue-text">{{ post.content }}</p>
+                    {{post.date}}
+            </div>
+            </div>
+    
+            </div>
+            </a>
             {% endfor %}
             </ul>
-        </div>
-    </div>
-</div>
       </div>
 
     </div>
+    
 
-
-
-
-
-    <div class="row">
-        
-
-
-
-{% comment %} {% endblock content %} {% endcomment %}
-
-{% comment %} <h1>{{city.name}}</h1>
-
-{% if city.picture %}
-<img src = {{city.picture.url}} width = '200px' height = '200px'>
- {% endif %}
-
-{% for post in posts %}
-<div>
-<h3>{{post.title}}</h3>
- <h6> Written by <a href = "{% url 'detail' post.profile.slug%}"> {{post.profile.firstname}} {{post.profile.lastname}}</a> </h6>
-<p>{{ post.content }}</p>
-{{post.date}}
-<a href = {% url 'postdetail' post.id%}> View More </a>
-
-</div>
-{% endfor %} {% endcomment %}
 
 <script>
-$(".dropdown-trigger").dropdown(hover: false);
 </script>
-
 {% endblock content %}
 
 

@@ -2,25 +2,6 @@
 
 {% block content %}
 
-<!-- Dropdown Structure Bar instead of a searchbar for cities, maybe a dropdown for premade cities in system-->
-{% comment %} <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav> {% endcomment %}
-
 <!-- Create container for Cities on left and selected city/post on right-->
 <!-- Page Layout here -->
     
@@ -37,6 +18,13 @@
         
         </ul>
     </div> {% endcomment %}
+    <!---- LEFT COLUMN-->
+{% comment %} <div class="row" id="full-row"> {% endcomment %}
+{% comment %} <h2 class="header">Cities</h2>
+<div class="col s12" id="left-col">
+
+{% for city in cities%}
+<div class="col s12" id="left-block">
 <div class="full-container">
 <div class="row">
       <div class="col s4" id="grey-panel">
@@ -45,10 +33,9 @@
         
         <div class="col-s12-m7" id="card-box-1">
     
-    <div class="card horizontal" width="" height="">
-      <div class="card-image" id="city-card-image">
-        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="">
-        {% comment %} <img class="materialboxed" width="650" src="/media/images/LA Night.jpg"> {% endcomment %}
+    <div class="card horizontal">
+      <div class="card-image" id="left-pic">
+        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="165">
       </div>
       {% for city in cities%}
       <div class="card-stacked">
@@ -58,11 +45,45 @@
         <div class="card-action">
         
           <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
-          {% endfor %}
         </div>
       </div>
     </div>
+    
   </div>
+  {% endfor %}
+  </div> {% endcomment %}
+
+{% comment %} Trying out Thicker Card Title {% endcomment %}
+<h1> Cities </h1>
+<div class="row" id="ci-row">
+    {% for city in cities %}
+    <a href="{% url 'citydetail' city.slug %}">
+    <div class="col s12 m7" id="city-card">
+    
+      <div class="card" id="city-index-card" height="auto">
+      {% comment %} <a href="{% url 'citydetail' city.slug%}"> {% endcomment %}
+        <div class="card-image" id="c-img">
+        {% if city.picture %}
+          <img class="responsive-img" src="{{city.picture.url}}">
+          {% else %} <img class="responsive-img" src="/media/images/01-lion-populations-nationalgeographic_1777804.jpg"
+        {% endif %}
+          <span class="card-title id="ct""><h2>{{ city.name }}</h2></span>
+        </div>
+        {% comment %} <div class="card-content">
+          <h2>City Name</h2>
+        </div>
+        <div class="card-action">
+          
+        </div> {% endcomment %}
+      </div>
+    </div>
+    </a>
+    {% endfor %}
+  </div>
+
+
+<!---end of row-->
+  {% comment %} </div> {% endcomment %}
  
     {% comment %} <div class="col s8">
         <!-- Teal page content  -->
@@ -74,35 +95,11 @@
             </ul>
         </div>
         {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
-            <h1> Posts </h1>
-            <ul>
-            
-            </ul> 
-        </div>
-    </div>
-</div>
-      </div>
-
-    </div>
-
-
-
-
-
+    
     <div class="row">
 </div> 
 
 <script>
-$(".dropdown-trigger").dropdown(hover: false);
-
-{% comment %} document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.materialboxed');
-    var instances = M.Materialbox.init(elems, options);
-    }); {% endcomment %}
-
-$(document).ready(function(){
-    $('.slider').slider();
-    });
 
 </script>
 
