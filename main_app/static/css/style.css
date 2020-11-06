@@ -177,6 +177,10 @@ input {
 h5 {
     color: white;
 }
+#id_content {
+    background-color: white;
+    color: black;
+}
 
 #id_title {
     background-color: white;
@@ -188,3 +192,44 @@ h5 {
     color: black;
 }
 
+
+
+#id_email {
+    background-color: white;
+    color: black;
+}
+
+#id_firstname {
+    background-color: white;
+    color: black;
+}
+
+#id_lastname {
+    background-color: white;
+    color: black;
+}
+
+#id_currentcity {
+    background-color: white;
+    color: black;
+}
+
+#id_username {
+    background-color: white;
+    color: black;
+}
+
+#id_password1 {
+    background-color: white;
+    color: black;
+}
+
+#id_password2 {
+    background-color: white;
+    color: black;
+}
+
+#edit-form {
+    margin: 0 auto;
+    max-width: 500px;
+}

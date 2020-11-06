@@ -24,7 +24,7 @@ class Profile(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=50)
-    picture = models.ImageField(upload_to="images/", blank = True)
+    picture = models.ImageField(upload_to="images/", blank = True, default='/images/shea-rouda-Vtl6cOhO87Y-unsplash.jpg')
     country = models.CharField(max_length=50)
     slug = models.SlugField(null=True, default="slug")
 
@@ -42,7 +42,7 @@ class Post(models.Model):
     title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    picture = models.ImageField(upload_to="images/", blank=True)
+    picture = models.ImageField(upload_to="images/", blank=True, default='/images/florian-klauer-mk7D-4UCfmg-unsplash.jpg')
     
 
     class Meta:

@@ -6,7 +6,8 @@ class ProfileCreationForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = [ 'email', 'slug', 'firstname', 'lastname', 'currentcity', 'picture' ]
-        widgets = { 'slug' : forms.HiddenInput()}
+        widgets = {'slug' : forms.HiddenInput()}
+
 
 class PostCreationForm(forms.ModelForm):
     class Meta:
