@@ -18,27 +18,31 @@
   <header class="center">
     <div class="row">
       {% if user.is_authenticated %}
-      <div class="col s4 head-opt" id="left">
+      <div class="col s3 blue" id="left">       
+        <a href="/" class="brand-logo white-text"><h6>WAYFARER</h6></a>
+      </div>
+      <div class="col s3 head-opt" id="left">
         <a href="{% url 'city_index' %}" class="white-text"><h6>Cities</h6></a>
       </div>
-      <div class="col s4 head-opt" id="left">
+      <div class="col s3 head-opt" id="left">
+      {% if user.profile %}
         <a href="{% url 'detail' request.user.profile.slug %}" class="white-text"><h6>My Profile</h6></a> 
+      {% else %}
+        <a href="" class="white-text"><h6>My Profile</h6></a> 
+      {% endif %}
       </div>
-      <div class="col s4 head-opt" id="right">
+      <div class="col s3 head-opt" id="right">
         <a href="{% url 'logout' %}" class="white-text"><h6>Logout</h6></a>
       </div>
-      <div class="col s12" id="top">       
-        <a href="/" class="brand-logo white-text"><h1>WAYFARER</h1></a>
-      </div>
       {% else %}
-      <div class="col s4 head-opt" id="left">
-        <a href="{% url 'signup' %}" class="white-text"><h6>Sign Up</h6></a>
-      </div>
-      <div class="col s4 head-opt" id="left">       
+      <div class="col s4 blue" id="left">       
         <a href="/" class="white-text"><h6>WAYFARER</h6></a>
       </div>
       <div class="col s4 head-opt" id="right">
         <a href="{% url 'login' %}" class="white-text"><h6>Login</h6></a>
+      </div>
+      <div class="col s4 head-opt" id="left">
+        <a href="{% url 'signup' %}" class="white-text"><h6>Sign Up</h6></a>
       </div>
       {% endif %}
     </div>

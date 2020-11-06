@@ -6,7 +6,7 @@
 
 <div class="card" id="card">
     <div class="card-image waves-effect waves-block waves-light">
-        <img class="" src="{{request.user.profile.picture.url}}" width="100" height="300">
+        <img class="" src="{{profile.picture.url}}" width="100" height="300">
     </div>
     <div class="card-content blue">
         <p class="card-title activator white-text">
@@ -24,6 +24,7 @@
 </div>
 
 <div class="row">
+{% if request.user.profile == profile %}
     <div class="col s6 left" id="button">        
         <p>
             <a href="{% url 'edit' profile.slug %}" class="btn-small blue">Edit</a>
@@ -34,8 +35,9 @@
             <a href="{% url 'add_post' profile.slug %}" class="btn-small blue">New Post</a>
         </p>
     </div>
+{% endif %}
 </div>
-    
+
 <div class="col s12 m7">
     <h2 class="header">Recent Posts</h2>
     {% for post in profile.post_set.all%}
