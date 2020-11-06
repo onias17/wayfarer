@@ -37,109 +37,41 @@
         
         </ul>
     </div> {% endcomment %}
-<div class="full-container">
-<div class="row">
-      <div class="col s4" id="grey-panel">
-      <h2 class="header">Cities</h2>
-        <!-- Grey navigation panel -->
-        <div class="col-s12-m7" id="card-box-1">
+    <!---- LEFT COLUMN-->
+<div class="row" id="full-row">
+<div class="col s4" id="left-col">
+<h2 class="header">Cities</h2>
+{% for city in cities%}
+<div class="col s12 m7" id="left-block">
     
-    <div class="card horizontal" width="" height="">
-      <div class="card-image" id="city-card-image">
-        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="">
-        {% comment %} <img class="materialboxed" width="650" src="/media/images/LA Night.jpg"> {% endcomment %}
+    <div class="card horizontal">
+      <div class="card-image" id="left-pic">
+        <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="165">
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <h6>Los Angeles</h6>
         </div>
         <div class="card-action">
-        {% for city in cities%}
           <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
-          {% endfor %}
         </div>
       </div>
     </div>
+    
   </div>
-  <div class="col-s12-m7" id="card-box-2">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/SF city.jpg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>San Francisco</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
+  {% endfor %}
   </div>
-  <div class="col-s12-m7" id="card-box-3">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/NY city park.jpeg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>New York</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      </div>
 
-    <div class="col s8">
+  <!---- RIGHT COLUMN-->
+<div class="col s8">
         <!-- Teal page content  -->
-        <div class="">
-            <h1> Selected{{ city.id }} </h1>
-            <img src="/media/images/LA Night.jpg">
-            <ul>
-            {% for city in cities%}
-
-            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-            {% endfor %}
-            </ul>
-        </div>
-        {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
-            <h1> Posts </h1>
-            <ul>
-            {% for city in cities%}
-
-            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-            {% endfor %}
-            </ul>
-        </div>
-    </div>
-</div>
       </div>
 
-    </div>
 
-
-
-
-
-    <div class="row">
-</div> 
+<!---end of row-->
+  </div>
 
 <script>
-$(".dropdown-trigger").dropdown(hover: false);
-
-{% comment %} document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.materialboxed');
-    var instances = M.Materialbox.init(elems, options);
-    }); {% endcomment %}
-
-$(document).ready(function(){
-    $('.slider').slider();
-    });
 
 </script>
 

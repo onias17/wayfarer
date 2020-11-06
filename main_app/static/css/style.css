@@ -1,4 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+    min-height:100vh;
     background-color: black;
 }
 
@@ -47,48 +52,38 @@ body {
 #profile-row {
     border-top: 1px solid;
 }
-
+/*  CAROUSEL */
 #car-home {
     height: 200px;
     
 }
 /* Cities index page */
-#city-row {
-    border-right: 1px solid;
+
+/* #city-index-container {
+    position: relative;
+    width:100%;
+
+    left: -0;
     display: flex;
     flex-direction: column;
-    height:20px;
-    width:20;
-
 }
-
-#city-list {
-    border-radius: 1px;
-
-}
-
-#city-card-image {
-    height:100%;
-}
-
-#grey-panel {
+*/
+#left-col {
     border-right: 1px solid;
-
+    position: absolute;
 }
 
-.col-s12-m7 {
-    border-radius: 0px;
+#left-block {
+    left: 0;
     width: 400px;
-    border-width: medium;
-
-
+    
 }
 
-.full-container {
-    margin-bottom: 30px;
-    height: 100vh;
-    width: 80vw;
-}
+#left-pic {
+    height:100%;
+} 
+
+
 .recent {
     margin-top: 30px;
     margin-bottom: 40px;
