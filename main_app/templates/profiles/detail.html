@@ -40,12 +40,12 @@
 
 <div class="col s12 m7">
     <h2 class="header">Recent Posts</h2>
-    {% for post in profile.post_set.all%}
+    {% for post in posts%}
     <div class="card horizontal">
         <div class="card-image" id="profile-img">
-            <img src="{{post.picture.url}}" width="200" height="200">
+            <img id = "imgg" src="{{post.picture.url}}" width="200" height="200">
         </div>
-        <div class="card-stacked">
+        <div class="card-stacked" id="postlist">
             <div class="card-content">
                 <p class="blue-text" >{{post.content}}</p>
             </div>

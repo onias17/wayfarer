@@ -23,7 +23,7 @@ class Profile(models.Model):
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, blank=False)
     picture = models.ImageField(upload_to="images/", blank = True, default='/images/shea-rouda-Vtl6cOhO87Y-unsplash.jpg')
     country = models.CharField(max_length=50)
     slug = models.SlugField(null=True, default="slug")
