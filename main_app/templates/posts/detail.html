@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<img src= "{{ post.profile.picture.url}}" alt="picture" width="200px"  >
+
 <br>
+<div id="profile">
+    <div id="profileauthor">
+<div id ="title"><h1> {{post.title}} </h1> </div>
 
-<h1> {{post.title}} </h1>
-
+<div> {% if post.picture %}
+ <img src="{{post.picture.url}}" id="postpicture" width="800px" alt="picture"> 
+{% endif %} </div>
+<br><div id = "profileimg"> <img class = "circle" src= "{{ post.profile.picture.url}}" alt="picture" width="100px"  >
+</div>Written by {{post.profile.firstname}} {{post.profile.lastname}} 
 <br>
 {{post.date}} PST
 <br>
-Written by {{post.profile.firstname}} {{post.profile.lastname}}
-<br>
+</div>
+
+<div id="postcontent">
 {{post.content}}
 {% if request.user.profile == post.profile%}
 <!-- DELETE POP UP WINDOW-->
@@ -30,14 +37,14 @@ Written by {{post.profile.firstname}} {{post.profile.lastname}}
 <!-- END OF DELETE POP UP WINDOW-->
 
 <br>
-<a class = "btn-small"href="{% url 'postedit' post.id%} "> Edit </a> <br>
-<a id = "firstdelete" class = "btn-small red"> Delete </a>
+<div class = "postbuttons">
+<a class = "btn postb" href="{% url 'postedit' post.id%} "> Edit </a> <br>
+<a id = "firstdelete" class = "btn-small red postb"> Delete </a>
+</div>
 {% endif %}
-
+</div>
 <br>
-{% if post.picture %}
- POST PICTURE : <img src="{{post.picture.url}}" width="200px" alt="picture"> 
-{% endif %}
+</div>
 <!-- Comment section--> 
 Number of comments: {{post.comment_set.count}}
 
@@ -46,18 +53,22 @@ Number of comments: {{post.comment_set.count}}
 {% csrf_token %} 
  {{comment_form.as_p}}
  <!---->
-<input class = 'btn' type ="submit">
+<input class = 'btn' type ="submit" value="Submit Comment">
 </form> 
 {% endif %}
  {% for comment in post.comment_set.all%}
- User who made comment: {{comment.profile}}
+ <div id ="comment" class="card">
+ <h6 id="commenth6"> {{comment.profile}} </h6>
+ <img class ="circle" src="{{comment.profile.picture.url}}" width ="75px">
  
- <br>
  
-  <img src="{{comment.profile.picture.url}}" width ="75px">
+ 
+ 
+  
 Comment: {{comment.content}} 
 {% if comment.profile == request.user.profile %}
 <a class = "btn" href="{% url 'delete_comment' comment.id %}"> Delete </a>
+</div>
 {% endif %}
 {% endfor %} 
 
@@ -75,6 +86,7 @@ $('#deletediv').hide()
 
 $('#firstdelete').click(function(){
     $('#deletediv').show()
+    console.log('hi')
 })
 
 $('#no').click(function(){

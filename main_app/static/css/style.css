@@ -27,7 +27,7 @@ body {
 }
 
 .hoverable:hover {
-    background-color: #03a9f4;
+    color: black;
 }
 
 .head-opt {
@@ -98,6 +98,70 @@ body {
     margin-bottom: 40px;
 }
 
+
+/* CIRRUS' CSS*/
 input {
+    
     color: white;
+}
+
+#profileauthor {
+    width: fit-content;
+    background-color: #03a9f4;
+}
+
+#comment {
+    color: black;
+    display: relative;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+#profileimg {
+    
+}
+
+#postcontent {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    line-height: 2;
+    margin-top: 0px;
+    width: 800px;
+}
+
+#title {
+    background-color: black;
+}
+
+.btn {
+    background-color: #03a9f4
+}
+
+.postb {
+    
+}
+
+#commenth6  {
+    text-align: left;
+    color: black;
+    width: fit-content;
+    padding-right: 10px;
+}
+
+#id_content {
+    background-color: white;
+    color: black;
+}
+#card {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+}
+
+#button {
+    margin-top: 20px
 }

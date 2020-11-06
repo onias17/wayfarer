@@ -48,6 +48,9 @@ class Post(models.Model):
     class Meta:
         ordering = ['-date']
 
+    def __str__(self):
+        return f'{self.title} written by {self.profile.firstname}'
+
 class Comment(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
