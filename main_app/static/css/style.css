@@ -28,7 +28,7 @@ body {
 }
 
 .hoverable:hover {
-    background-color: #03a9f4;
+    color: black;
 }
 
 .head-opt {
@@ -87,4 +87,14 @@ body {
 .recent {
     margin-top: 30px;
     margin-bottom: 40px;
+}
+
+#card {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+}
+
+#button {
+    margin-top: 20px
 }
