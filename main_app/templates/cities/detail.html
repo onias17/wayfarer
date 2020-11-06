@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<<<<<<< HEAD
 
 {% comment %} <ul id="dropdown1" class="dropdown-content">
   <li><a href="#!">one</a></li>
@@ -136,10 +135,6 @@
 {% comment %} {% endblock content %} {% endcomment %}
 
 {% comment %} <h1>{{city.name}}</h1>
-=======
-<a href = {% url 'add_citypost' city.id %} class ='btn-small'> Add Post </a>
-<h1>{{city.name}}</h1>
->>>>>>> submaster
 
 {% if city.picture %}
 <img src = {{city.picture.url}} width = '200px' height = '200px'>
