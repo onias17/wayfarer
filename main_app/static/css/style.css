@@ -1,8 +1,10 @@
 * {
+    box-sizing: border-box;
     color: white;
 }
 
 body {
+    min-height:100vh;
     background-color: black;
 }
 
@@ -27,7 +29,7 @@ body {
 }
 
 .hoverable:hover {
-    color: black;
+    background-color: #03a9f4;
 }
 
 .head-opt {
@@ -51,52 +53,109 @@ body {
 #profile-row {
     border-top: 1px solid;
 }
-
+/*  CAROUSEL */
 #car-home {
     height: 200px;
     
 }
 /* Cities index page */
-#city-row {
+
+/* #left-col {
+
     border-right: 1px solid;
-    display: flex;
-    flex-direction: column;
-    height:20px;
-    width:20;
+    position: absolute;
+} */
+.card {
+    background-color: rgb(0,0,0,0);
+    
+}
+/* #city-card {
+    background-color: black;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+} */
 
+ #city-card {
+    background-color: black;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-#city-list {
-    border-radius: 1px;
+#ci-row {
+    position: relative;
+    left: 250px;
+    margin: 0 auto;
+}
+ /* #city-index-block {
 
+    height: auto;
+    max-width: 100%;
+
+}  */
+
+/* #c-img {
+
+    height: auto;
+    max-width: 100%;
+} */
+
+/* #ct {
+    text-align: center;
 }
 
-#city-card-image {
-    height:100%;
-}
-
-#grey-panel {
-    border-right: 1px solid;
-
-}
-
-.col-s12-m7 {
-    border-radius: 0px;
+#left-block {
+    left: 0;
     width: 400px;
-    border-width: medium;
-
-
+    
 }
 
-.full-container {
-    margin-bottom: 30px;
-    height: 100vh;
-    width: 80vw;
+#left-pic {
+    height:100%;
+}  */
+
+/*------ CITY DETAILS ----- */
+#left-block {
+    border-right: 1px solid;
+    border-color: white;
+    left: 0;
+    width: 400px;
+    
 }
+
+.row .col.s4 {
+    border-right:1px solid;
+}
+
+.post-ul {
+    background-color: white;
+    
+    /* background: border-box; */
+    border-right: 1px solid;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    margin-top: 50px;
+    padding: 10px;
+    /* overflow:hidden;
+    white-space: nowrap; */
+}
+
+.card.horizontal .card-image img{
+    width: 400px;
+    height: 220px;
+}
+
+#stacked-detail-city{
+    position: relative;
+    right: 175px;
+}
+
 .recent {
     margin-top: 30px;
     margin-bottom: 40px;
 }
+
 
 
 /* CIRRUS' CSS*/
@@ -104,15 +163,19 @@ input {
     
     color: white;
 }
-
+#profile {
+    margin: 0 auto;
+    width: 800px;
+}
 #profileauthor {
-    width: fit-content;
-    background-color: #03a9f4;
+    
+    background-color: black;
 }
 
 #comment {
     color: black;
     display: relative;
+    min-width: 300px;
     width: fit-content;
     margin: 0 auto;
     margin-top: 20px;
@@ -120,9 +183,11 @@ input {
     padding: 10px;
 }
 
-#profileimg {
+/* #profileimg {
     
-}
+} */
+
+
 
 #postcontent {
     background-color: white;
@@ -142,7 +207,7 @@ input {
 }
 
 .postb {
-    
+    background-color: #03a9f4
 }
 
 #commenth6  {
@@ -155,6 +220,8 @@ input {
 #id_content {
     background-color: white;
     color: black;
+    max-width: 800px;
+    margin: 0 auto;
 }
 #card {
     margin: 0 auto;
@@ -166,6 +233,9 @@ input {
     margin-top: 20px
 }
 
+h5 {
+    color: white;
+}
 #id_content {
     background-color: white;
     color: black;
@@ -174,7 +244,14 @@ input {
 #id_title {
     background-color: white;
     color: black;
+    max-width: 300px;
 }
+
+#com {
+    color: black;
+}
+
+
 
 #id_email {
     background-color: white;

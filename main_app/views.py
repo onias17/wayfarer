@@ -66,7 +66,10 @@ def new_profile(request):
 
 def profiles_detail(request, slug):
     profile = Profile.objects.get(slug=slug)
-    context = {'profile' : profile}
+    posts = Post.objects.filter(profile=profile)
+    for post in posts:
+        post.content = post.content[:100]
+    context = {'profile' : profile, "posts" :posts}
 
     return render(request, 'profiles/detail.html', context )
 
