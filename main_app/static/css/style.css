@@ -27,7 +27,7 @@ body {
 }
 
 .hoverable:hover {
-    background-color: #03a9f4;
+    color: black;
 }
 
 .head-opt {
@@ -155,4 +155,13 @@ input {
 #id_content {
     background-color: white;
     color: black;
+}
+#card {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+}
+
+#button {
+    margin-top: 20px
 }
