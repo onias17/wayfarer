@@ -2,30 +2,56 @@
 
 {% block content %}
 
-<h5 class="profile">{{profile.user}}</h5>
-<div class="row" id="profile-row"> 
-    <div class="col s4">
-        <h5 class="light-green-text text-darken-2"> All Posts </h5>
-    <ul>
-    {% for post in profile.post_set.all%}
-    <li><a href="{% url 'postdetail' post.id %}">{{post.title}}</a> </li>
-    {% endfor %} 
-    </ul>
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="{{request.user.profile.picture.url}}">
     </div>
-    <div class="col s4">
-        <img src = "{{request.user.profile.picture.url}}" default='default-profile-img.png' alt ="picture" width ="200px" class="image">
-    </div>
-    <div class="col s4">
-            {%if request.user == profile.user%}
-        <h5 class="light-green-text text-darken-2">City: {{profile.currentcity}}</h5>
-        <a href = "{% url 'edit' profile.slug %}">Edit </a>
-        <a href = "{% url 'add_post' profile.slug %}">New Post </a>
-        {% endif %}
-        <p> User since : {{profile.user.date_joined}} </p>
+    <div class="card-content blue">
+        <p class="card-title activator white-text">
+            <h4>{{profile.user}}</h4>
+        </p>
+        <p>
+            <a href="#" class="white-text">
+                <h6>{{profile.currentcity}}</h6>
+            </a>
+            <span class="left">
+                <a href = "{% url 'edit' profile.slug %}" class="white-text">Edit</a>
+            </span>
+            <span class="white-text right">User since: {{profile.user.date_joined}}</span>
+        </p>
+        <p>
+        </p>
     </div>
 </div>
 
-</ul>
+    <div class="row">
+        <div class="col s12 right">        
+            <p><a href="{% url 'add_post' profile.slug %}" class="right">New Post</a></p>
+        </div>
+    </div>
+    
+<div class="col s12 m7">
+    <h2 class="header">Recent Posts</h2>
+        {% for post in profile.post_set.all%}
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="nfodw">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'postdetail' post.id %}">{{post.title}}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %} 
+  </div>
+
+
+        
+
 {% endblock content %}
 
 
