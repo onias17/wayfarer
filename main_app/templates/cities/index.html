@@ -42,6 +42,7 @@
       <div class="col s4" id="grey-panel">
       <h2 class="header">Cities</h2>
         <!-- Grey navigation panel -->
+        
         <div class="col-s12-m7" id="card-box-1">
     
     <div class="card horizontal" width="" height="">
@@ -49,72 +50,34 @@
         <img src="/media/images/LA Night.jpg" alt="card-hz1" width="" height="">
         {% comment %} <img class="materialboxed" width="650" src="/media/images/LA Night.jpg"> {% endcomment %}
       </div>
+      {% for city in cities%}
       <div class="card-stacked">
         <div class="card-content">
           <h6>Los Angeles</h6>
         </div>
         <div class="card-action">
-        {% for city in cities%}
+        
           <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
           {% endfor %}
         </div>
       </div>
     </div>
   </div>
-  <div class="col-s12-m7" id="card-box-2">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/SF city.jpg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>San Francisco</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-s12-m7" id="card-box-3">
-    <h2 class="header"></h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="/media/images/NY city park.jpeg" alt="card-hz1" width="" height="">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h6>New York</h6>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      </div>
-
-    <div class="col s8">
+ 
+    {% comment %} <div class="col s8">
         <!-- Teal page content  -->
         <div class="">
             <h1> Selected{{ city.id }} </h1>
             <img src="/media/images/LA Night.jpg">
             <ul>
-            {% for city in cities%}
-
-            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-            {% endfor %}
+           
             </ul>
         </div>
         {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
             <h1> Posts </h1>
             <ul>
-            {% for city in cities%}
-
-            <li> <a href = "{% url 'citydetail' city.slug%}"> {{city.name}} </a> </li>
-            {% endfor %}
-            </ul>
+            
+            </ul> 
         </div>
     </div>
 </div>

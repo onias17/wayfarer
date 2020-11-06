@@ -35,7 +35,7 @@
         {% for post in profile.post_set.all%}
         <div class="card horizontal">
             <div class="card-image">
-                <img src="nfodw">
+                <img src="{{post.picture.url}}">
             </div>
             <div class="card-stacked">
                 <div class="card-content">
