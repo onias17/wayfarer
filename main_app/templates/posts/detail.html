@@ -37,10 +37,15 @@
 <!-- END OF DELETE POP UP WINDOW-->
 
 <br>
+<<<<<<< HEAD
 <div class = "postbuttons">
 <a class = "btn postb" href="{% url 'postedit' post.id%} "> Edit </a> <br>
 <a id = "firstdelete" class = "btn-small red postb"> Delete </a>
 </div>
+=======
+<a class = "btn-small blue"href="{% url 'postedit' post.id%} "> Edit </a> <br>
+<a id = "firstdelete" class = "btn-small red"> Delete </a>
+>>>>>>> 554ca030e5b2b7bd755139c8deecf2d38b7f304c
 {% endif %}
 </div>
 <br>
@@ -53,7 +58,11 @@ Number of comments: {{post.comment_set.count}}
 {% csrf_token %} 
  {{comment_form.as_p}}
  <!---->
+<<<<<<< HEAD
 <input class = 'btn' type ="submit" value="Submit Comment">
+=======
+<input class = 'btn blue' type ="submit">
+>>>>>>> 554ca030e5b2b7bd755139c8deecf2d38b7f304c
 </form> 
 {% endif %}
  {% for comment in post.comment_set.all%}
