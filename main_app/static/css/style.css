@@ -183,6 +183,18 @@ input {
     padding: 10px;
 }
 
+#profile-img {
+    width:200px;
+    max-width: 200px;
+}
+
+#imgg {
+    width:200px;
+}
+
+.card.horizontal .card-image img {
+    width: 200px;
+}
 /* #profileimg {
     
 } */
@@ -291,4 +303,8 @@ h5 {
 #edit-form {
     margin: 0 auto;
     max-width: 500px;
+}
+
+#postlist {
+    width: 500px;
 }

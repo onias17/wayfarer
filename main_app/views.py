@@ -36,7 +36,11 @@ def home(request):
 def profiles_index(request):
     profile = Profile.objects.get(user = request.user)
     posts = Post.objects.filter(profile=profile)
-    context = {'profile': profile, 'posts' : posts}
+    
+
+    for post in posts:
+        post.content = post.content[:100]
+        context = {'profile': profile, 'posts' : posts}
     return render(request, 'profiles/index.html', context)
 
 @login_required
@@ -120,14 +124,14 @@ def add_post(request, slug):
                     new_form.profile = profile
                     new_form.city = city
                     new_form.save()
-                    return redirect('home')
+                    return redirect('profiles_index')
         else: 
             createdcity = City.objects.create(name=cityname, slug=slugify(cityname))
             new_form = form.save(commit=False)
             new_form.profile = profile
             new_form.city = createdcity
             new_form.save()
-        return redirect('home')
+        return redirect('profiles_index')
     ##GET REQUEST    
     else:
         cities = City.objects.all()
