@@ -5,9 +5,9 @@
 
     <!-- CSRF TOKEN - Cross Site Request Forgery -->
     {% csrf_token %}
-
+<div id = "edit-form">
     {{ form.as_p }}
-
+</div>
     <input type="hidden" name="next" value="{{ next }}">
 
     <button class="btn blue" type="submit">Login</button>
