@@ -28,6 +28,8 @@ class City(models.Model):
     country = models.CharField(max_length=50)
     slug = models.SlugField(null=True, default="slug")
 
+    class Meta:
+        ordering = ['-id']
     def __str__(self):
         return self.name
 
