@@ -1,23 +1,38 @@
 body {
-    background-color: #e0e0e0;
+    background-color: black;
 }
 
 .profile {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
     margin-top: 100px;
 }
 
 #left {
     border-left: 1px solid;
+    border-color: white;
 }
 
 #right {
     border-right: 1px solid;
     border-left: 1px solid;
+    border-color: white;
+}
+
+#top {
+    margin-top: 0;
 }
 
 .hoverable:hover {
     background-color: #03a9f4;
+}
+
+.head-opt {
+    margin: 0;
+    padding: 25;
+}
+
+.head-opt:hover {
+    background-color: rgb(3, 169, 244);
 }
 
 .image {
@@ -31,4 +46,9 @@ body {
 
 #profile-row {
     border-top: 1px solid;
+}
+
+.recent {
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
