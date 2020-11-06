@@ -16,26 +16,29 @@
             <a href="#" class="white-text">
                 <h6><span class="hoverable">{{profile.currentcity}}</span></h6>
             </a>
+            
             <span class="left">
                 
             </span>
         </p>
+        {% if request.user.profile == profile %}
+    <div class="col s6 " id="profileditbutton">        
+        <p>
+            <a href="{% url 'edit' profile.slug %}" class="white-text left hoverable">Edit</a>
+            <a href="{% url 'add_post' profile.slug %}" class="white-text right hoverable">New Post</a>
+        </p>
+    </div>
+    <div class="col s6 " id="profilenewbutton">        
+        <p>
+            
+        </p>
+    </div>
+{% endif %}
     </div>
 </div>
 
 <div class="row">
-{% if request.user.profile == profile %}
-    <div class="col s6 left" id="button">        
-        <p>
-            <a href="{% url 'edit' profile.slug %}" class="btn-small blue">Edit</a>
-        </p>
-    </div>
-    <div class="col s6 right" id="button">        
-        <p>
-            <a href="{% url 'add_post' profile.slug %}" class="btn-small blue">New Post</a>
-        </p>
-    </div>
-{% endif %}
+
 </div>
 
 <div class="col s12 m7">

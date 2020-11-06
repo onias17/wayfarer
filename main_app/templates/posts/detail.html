@@ -22,20 +22,21 @@
 
 {% if request.user.profile == post.profile%}
 <div class="card-content">
-<a class = "btn-small postb left" href="{% url 'postedit' post.id%} "> Edit </a> 
-<a id = "firstdelete" class = "btn-small red postb right"> Delete </a>
+<a class = "btn-small postb left userbtns" href="{% url 'postedit' post.id%} "> Edit </a> 
+<a id = "firstdelete" class = "btn-small red postb right userbtns"> Delete </a>
 </div>
+
 <!-- DELETE POP UP WINDOW-->
 {% comment %} <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> {% endcomment %}
 
-<div id = "deletediv" class="modal">
+<div id = "deletediv" class="modal1">
  <div class="modal-content">
-    <h1> Are you sure you want to delete {{post.title}}? </h1>
+    <h1 id = "confirmdelete"> Are you sure you want to delete {{post.title}}? </h1>
     <a href = "{% url 'deletepost' post.id %}" class = ' waves-effect waves-light btn modal-trigger btn-small red'> Yes </a>
-    <a id = "no" class = 'btn-small'> No </a>
+    <a id = "no" class = 'btn-small blue'> No </a>
  </div>
  <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    
     <div class = "postbuttons">
 
 </div>
@@ -65,9 +66,10 @@
 
  <!---->
 <input class = 'btn' type ="submit" value="Submit Comment">
+{% endif %}
 </form> 
  <h5>Number of comments: {{post.comment_set.count}} </h5>
-{% endif %}
+
  {% for comment in post.comment_set.all%}
  <div id ="comment" class="card">
  <h6 id="commenth6"> {{comment.profile}} </h6>
@@ -78,11 +80,13 @@
  
   
 <p id="com"> {{comment.content}} </p>
+</div>
 {% if comment.profile == request.user.profile %}
 <a class = "btn" href="{% url 'delete_comment' comment.id %}"> Delete </a>
-</div>
+
 {% endif %}
 {% endfor %} 
+</div>
 
 <!-- Modal Trigger -->
 
@@ -94,16 +98,20 @@ $(document).ready(function(){
     $('.modal1').modal();
 });
 
+
 $('#deletediv').hide()
+
 
 $('#firstdelete').click(function(){
     $('#deletediv').show()
+    $('.userbtns').hide()
     console.log('hi')
     
 })
 
 $('#no').click(function(){
     $('#deletediv').hide()
+    $('.userbtns').show()
 })
 </script>
 {% endblock content %}
