@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<a href = {% url 'add_citypost' city.id %} class ='btn-small'> Add Post </a>
 <h1>{{city.name}}</h1>
 
 {% if city.picture %}
