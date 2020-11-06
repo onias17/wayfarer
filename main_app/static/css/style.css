@@ -76,11 +76,17 @@ body {
     max-width: 100%;
 } */
 
-/* #city-index-card {
+ #city-card {
     background-color: black;
     max-width: 100%;
-} */
+    margin: 0 auto;
+}
 
+#ci-row {
+    position: relative;
+    left: 250px;
+    margin: 0 auto;
+}
  /* #city-index-block {
 
     height: auto;
@@ -122,16 +128,29 @@ body {
 }
 
 .post-ul {
-    background: border-box;
+    background-color: white;
+    
+    /* background: border-box; */
     border-right: 1px solid;
     border-top: 1px solid;
     border-left: 1px solid;
     border-bottom: 1px solid;
     margin-top: 50px;
     padding: 10px;
-    overflow:hidden;
-    white-space: nowrap;
+    /* overflow:hidden;
+    white-space: nowrap; */
 }
+
+.card.horizontal .card-image img{
+    width: 400px;
+    height: 220px;
+}
+
+#stacked-detail-city{
+    position: relative;
+    right: 175px;
+}
+
 .recent {
     margin-top: 30px;
     margin-bottom: 40px;

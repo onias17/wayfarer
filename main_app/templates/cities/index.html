@@ -18,7 +18,6 @@
         
         </ul>
     </div> {% endcomment %}
-<<<<<<< HEAD
     <!---- LEFT COLUMN-->
 {% comment %} <div class="row" id="full-row"> {% endcomment %}
 {% comment %} <h2 class="header">Cities</h2>
@@ -26,7 +25,6 @@
 
 {% for city in cities%}
 <div class="col s12" id="left-block">
-=======
 <div class="full-container">
 <div class="row">
       <div class="col s4" id="grey-panel">
@@ -34,7 +32,6 @@
         <!-- Grey navigation panel -->
         
         <div class="col-s12-m7" id="card-box-1">
->>>>>>> submaster
     
     <div class="card horizontal">
       <div class="card-image" id="left-pic">
@@ -46,10 +43,7 @@
           <h6>Los Angeles</h6>
         </div>
         <div class="card-action">
-<<<<<<< HEAD
-=======
         
->>>>>>> submaster
           <a href="{% url 'citydetail' city.slug%}"> {{city.name}}</a>
         </div>
       </div>
@@ -61,19 +55,19 @@
 
 {% comment %} Trying out Thicker Card Title {% endcomment %}
 <h1> Cities </h1>
-<div class="row">
-    {% for city in cities%}
+<div class="row" id="ci-row">
+    {% for city in cities %}
+    <a href="{% url 'citydetail' city.slug %}">
     <div class="col s12 m7" id="city-card">
     
       <div class="card" id="city-index-card" height="auto">
-      <a href="{% url 'citydetail' city.slug%}">
+      {% comment %} <a href="{% url 'citydetail' city.slug%}"> {% endcomment %}
         <div class="card-image" id="c-img">
         {% if city.picture %}
           <img class="responsive-img" src="{{city.picture.url}}">
           {% else %} <img class="responsive-img" src="/media/images/01-lion-populations-nationalgeographic_1777804.jpg"
         {% endif %}
-          </a>
-          <span class="card-title id="ct""><h2>Cities</h2></span>
+          <span class="card-title id="ct""><h2>{{ city.name }}</h2></span>
         </div>
         {% comment %} <div class="card-content">
           <h2>City Name</h2>
@@ -83,6 +77,7 @@
         </div> {% endcomment %}
       </div>
     </div>
+    </a>
     {% endfor %}
   </div>
 
@@ -100,21 +95,7 @@
             </ul>
         </div>
         {% comment %} <div class="col s8 offset-s4"> {% endcomment %}
-            <h1> Posts </h1>
-            <ul>
-            
-            </ul> 
-        </div>
-    </div>
-</div>
-      </div>
-
-    </div>
-
-
-
-
-
+    
     <div class="row">
 </div> 
 
