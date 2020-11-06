@@ -28,7 +28,7 @@ body {
 }
 
 .hoverable:hover {
-    color: black;
+    background-color: #03a9f4;
 }
 
 .head-opt {
@@ -59,15 +59,6 @@ body {
 }
 /* Cities index page */
 
-/* #city-index-container {
-    position: relative;
-    width:100%;
-
-    left: -0;
-    display: flex;
-    flex-direction: column;
-}
-*/
 #left-col {
     border-right: 1px solid;
     position: absolute;
@@ -87,14 +78,4 @@ body {
 .recent {
     margin-top: 30px;
     margin-bottom: 40px;
-}
-
-#card {
-    margin: 0 auto;
-    width: 500px;
-    height: 100px;
-}
-
-#button {
-    margin-top: 20px
 }
