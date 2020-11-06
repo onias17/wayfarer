@@ -19,7 +19,12 @@
 
 <div id="postcontent">
 {{post.content}}
+
 {% if request.user.profile == post.profile%}
+<div class="card-content">
+<a class = "btn-small postb left" href="{% url 'postedit' post.id%} "> Edit </a> 
+<a id = "firstdelete" class = "btn-small red postb right"> Delete </a>
+</div>
 <!-- DELETE POP UP WINDOW-->
 {% comment %} <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> {% endcomment %}
 
@@ -31,30 +36,33 @@
  </div>
  <div class="modal-footer">
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    <div class = "postbuttons">
+
+</div>
  </div>
 </div>
 
 <!-- END OF DELETE POP UP WINDOW-->
 
 <br>
-<div class = "postbuttons">
-<a class = "btn postb" href="{% url 'postedit' post.id%} "> Edit </a> <br>
-<a id = "firstdelete" class = "btn-small red postb"> Delete </a>
-</div>
+
 {% endif %}
 </div>
 <br>
 </div>
 <!-- Comment section--> 
-Number of comments: {{post.comment_set.count}}
+
 
 {% if request.user.profile %}
  <form action = "{% url 'add_comment' post.id %}" method = "POST">
 {% csrf_token %} 
  {{comment_form.as_p}}
+
+
  <!---->
 <input class = 'btn' type ="submit" value="Submit Comment">
 </form> 
+ <h5>Number of comments: {{post.comment_set.count}} </h5>
 {% endif %}
  {% for comment in post.comment_set.all%}
  <div id ="comment" class="card">
@@ -65,7 +73,7 @@ Number of comments: {{post.comment_set.count}}
  
  
   
-Comment: {{comment.content}} 
+<p id="com"> {{comment.content}} </p>
 {% if comment.profile == request.user.profile %}
 <a class = "btn" href="{% url 'delete_comment' comment.id %}"> Delete </a>
 </div>
@@ -87,6 +95,7 @@ $('#deletediv').hide()
 $('#firstdelete').click(function(){
     $('#deletediv').show()
     console.log('hi')
+    
 })
 
 $('#no').click(function(){

@@ -38,12 +38,6 @@
     
 <div class="col s12 m7">
     <h2 class="header">Recent Posts</h2>
-<<<<<<< HEAD
-        {% for post in profile.post_set.all%}
-        <div class="card horizontal">
-            <div class="card-image">
-                <img src="{{post.picture.url}}">
-=======
     {% for post in profile.post_set.all%}
     <div class="card horizontal">
         <div class="card-image" id="profile-img">
@@ -52,7 +46,6 @@
         <div class="card-stacked">
             <div class="card-content">
                 <p class="blue-text" >{{post.content}}</p>
->>>>>>> 17ef33cdb8fe8a402d862b3d20d6e194e8086643
             </div>
             <div class="card-action blue">
                 <a href="{% url 'postdetail' post.id %}" class="white-text"><span class="hoverable">{{post.title}}</span></a>

@@ -104,15 +104,19 @@ input {
     
     color: white;
 }
-
+#profile {
+    margin: 0 auto;
+    width: 800px;
+}
 #profileauthor {
-    width: fit-content;
-    background-color: #03a9f4;
+    
+    background-color: black;
 }
 
 #comment {
     color: black;
     display: relative;
+    min-width: 300px;
     width: fit-content;
     margin: 0 auto;
     margin-top: 20px;
@@ -123,6 +127,8 @@ input {
 #profileimg {
     
 }
+
+
 
 #postcontent {
     background-color: white;
@@ -142,7 +148,7 @@ input {
 }
 
 .postb {
-    
+    background-color: #03a9f4
 }
 
 #commenth6  {
@@ -155,6 +161,8 @@ input {
 #id_content {
     background-color: white;
     color: black;
+    max-width: 800px;
+    margin: 0 auto;
 }
 #card {
     margin: 0 auto;
@@ -165,3 +173,18 @@ input {
 #button {
     margin-top: 20px
 }
+
+h5 {
+    color: white;
+}
+
+#id_title {
+    background-color: white;
+    color: black;
+    max-width: 300px;
+}
+
+#com {
+    color: black;
+}
+
