@@ -18,7 +18,18 @@ CITIES = [ 'Irvine' , 'New York']
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    city = City.objects.latest('id')
+    post = Post.objects.latest('id')
+    profile = Profile.objects.latest('id')
+
+    post.content = post.content[:100]
+
+    context = {
+        'city': city,
+        'post': post,
+        'profile': profile
+    }
+    return render(request, 'home.html', context)
 
 ## PROFILES VIEWS
 
