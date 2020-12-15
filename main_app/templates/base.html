@@ -14,30 +14,38 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body class="">
-  <header class="navbar-fixed">
-    <nav class = "blue">
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo grey-text text-lighten-2">&nbsp;&nbsp;WayFarer</a></li>
-        </ul>
-        <ul class="right">
-          
-          <li><a href="" class="grey-text text-lighten-2">About</a></li>
-
-          {% if user.is_authenticated %}
-            <li><a href="{% url 'add_post' request.user.profile.slug %}" class="grey-text text-lighten-2">Add Post</a></li>
-            <li><a href="{% url 'detail' request.user.profile.slug %}" class="grey-text text-lighten-2"> My Profile</a></li> 
-            <li><a href="{% url 'city_index' %}" class="grey-text text-lighten-2">All Cities</a></li>
-            <li><a href="{% url 'add_city' %}" class="grey-text text-lighten-2">Add City</a></li>
-            <li><a href="{% url 'logout' %}" class="grey-text text-lighten-2">Logout</a></li>
-          {% else %}
-            <li><a href="{% url 'signup' %}" class="grey-text text-lighten-2">Sign Up</a></li>
-            <li><a href="{% url 'login' %}" class="grey-text text-lighten-2">Login</a></li>
-          {% endif %}
-        </ul>
+<body class="black white-text">
+  <header class="center">
+    <div class="row">
+      {% if user.is_authenticated %}
+      <div class="col s3 blue" id="left">       
+        <a href="/" class="brand-logo white-text"><h6>WAYFARER</h6></a>
       </div>
-    </nav>
+      <div class="col s3 head-opt" id="left">
+        <a href="{% url 'city_index' %}" class="white-text"><h6>Cities</h6></a>
+      </div>
+      <div class="col s3 head-opt" id="left">
+      {% if user.profile %}
+        <a href="{% url 'detail' request.user.profile.slug %}" class="white-text"><h6>My Profile</h6></a> 
+      {% else %}
+        <a href="" class="white-text"><h6>My Profile</h6></a> 
+      {% endif %}
+      </div>
+      <div class="col s3 head-opt" id="right">
+        <a href="{% url 'logout' %}" class="white-text"><h6>Logout</h6></a>
+      </div>
+      {% else %}
+      <div class="col s4 blue" id="left">       
+        <a href="/" class="white-text"><h6>WAYFARER</h6></a>
+      </div>
+      <div class="col s4 head-opt" id="right">
+        <a href="{% url 'login' %}" class="white-text"><h6>Login</h6></a>
+      </div>
+      <div class="col s4 head-opt" id="left">
+        <a href="{% url 'signup' %}" class="white-text"><h6>Sign Up</h6></a>
+      </div>
+      {% endif %}
+    </div>
   </header>
   <main class="container center">
     {% block content %}

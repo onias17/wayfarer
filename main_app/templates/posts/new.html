@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-New Post
+<h1>New Post</h1>
 
-<form method="POST" action="{% url 'add_post' profile.slug %}">
+<form method="POST" action="{% url 'add_post' profile.slug %}" enctype="multipart/form-data">
 {% csrf_token %}
 
 {{form.as_p}}
@@ -12,11 +12,14 @@ New Post
 <input type = 'text' name = 'content'>
 
 -->
-<select name = "city" class= "browser-default">
+{% comment %} <select name = "city" class= "browser-default">
 {% for city in citylist%}
 <option value="{{city.name}}"> {{city.name}} </option>
 {% endfor %}
-</select>
+</select> {% endcomment %}
+
+<label> City </label>
+<input type = "text" name="city" id="cityinput">
 
 <br> <br>
 <input type="submit" class='btn'>

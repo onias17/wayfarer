@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 
 # Create your models here.
-CITYLIST = ['La', 'phoenix', 'Irvine']
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -23,11 +23,13 @@ class Profile(models.Model):
 
 
 class City(models.Model):
-    name = models.CharField(max_length=50)
-    picture = models.ImageField(upload_to="images/", blank = True)
+    name = models.CharField(max_length=50, blank=False)
+    picture = models.ImageField(upload_to="images/", blank = True, default='/images/shea-rouda-Vtl6cOhO87Y-unsplash.jpg')
     country = models.CharField(max_length=50)
     slug = models.SlugField(null=True, default="slug")
 
+    class Meta:
+        ordering = ['-id']
     def __str__(self):
         return self.name
 
@@ -42,10 +44,26 @@ class Post(models.Model):
     title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
+    picture = models.ImageField(upload_to="images/", blank=True, default='/images/florian-klauer-mk7D-4UCfmg-unsplash.jpg')
     
 
     class Meta:
         ordering = ['-date']
+
+    def __str__(self):
+        return f'{self.title} written by {self.profile.firstname}'
+
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, blank=True)
+    content = models.TextField(max_length=400)
+    date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date']
+
+    def __str__(self):
+        return f'{self.profile}s comment on {self.post.profile}s post'
 
 
 
