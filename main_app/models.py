@@ -44,7 +44,7 @@ class Post(models.Model):
     title = models.CharField( max_length= 200)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    picture = models.ImageField(upload_to="images/", blank=True, default='/images/florian-klauer-mk7D-4UCfmg-unsplash.jpg')
+    picture = models.ImageField(upload_to="images/", blank=True, default='/images/default.jpg')
     
 
     class Meta:
